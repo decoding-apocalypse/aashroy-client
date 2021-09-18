@@ -35,8 +35,9 @@ function App() {
   axios.defaults.withCredentials = true;
   const { user, dispatchAuthState } = useContext(AuthContext);
   useEffect(() => {
+    const apiUrl = process.env.REACT_APP_API_URL;
     axios
-      .get("/users/login")
+      .get(`${apiUrl}/users/login`)
       .then((res) => {
         if (res.data.isLoggedIn) {
           sessionLoginCall(res.data.user, dispatchAuthState);

@@ -1,9 +1,11 @@
 import axios from "axios";
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 export const loginCall = async (userCredential, dispatch) => {
   dispatch({ type: "LOGIN_START" });
   try {
-    const res = await axios.post("/users/login", userCredential);
+    const res = await axios.post(`${apiUrl}/users/login`, userCredential);
     if (res.data.message) {
       dispatch({ type: "LOGIN_FAILURE", payload: res.data });
       return;
@@ -50,7 +52,7 @@ export const signupCall = async (userCredential, dispatch) => {
   }
   try {
     axios
-      .post("/users/register", {
+      .post(`${apiUrl}/users/register`, {
         name,
         password,
         passwordConf,
@@ -75,7 +77,7 @@ export const signupCall = async (userCredential, dispatch) => {
 export const logoutCall = (userCredential, dispatch) => {
   dispatch({ type: "LOGOUT_START" });
   axios
-    .post("/users/logout")
+    .post(`${apiUrl}/users/logout`)
     .then((res) => {
       if (res.data.successfull) {
         dispatch({ type: "LOGOUT_SUCCESS" });
@@ -94,7 +96,7 @@ export const googleLoginCall = (userCredential, dispatch) => {
   try {
     // Login
     axios
-      .post("/users/google", { tokenId })
+      .post(`${apiUrl}/users/google`, { tokenId })
       .then((res) => {
         if (res.data.message) {
           dispatch({ type: "GOOGLE_LOGIN_FAILURE", payload: res.data });
