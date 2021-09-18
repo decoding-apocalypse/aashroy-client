@@ -1,0 +1,166 @@
+.row {
+  width: 90%;
+  height: 80%;
+  margin: 4rem auto;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 6px 6px 20px rgb(216, 216, 216);
+  position: relative;
+}
+
+.back {
+  position: absolute;
+  top: 0.5rem;
+  left: 1.5rem;
+  color: var(--theme1-100);
+  font-size: 1.5rem;
+  text-decoration: underline;
+}
+
+.info {
+  width: 30%;
+  padding: 1rem 3rem;
+}
+
+.donate {
+  width: 70%;
+  height: 100%;
+  padding: 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.info img {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.donate h3 {
+  font-size: 3rem;
+  font-weight: 300;
+}
+
+.donate form {
+  height: 90%;
+}
+
+.frequency {
+  display: flex;
+  margin-bottom: 2rem;
+  justify-content: flex-end;
+}
+
+.inputGroup {
+  font-weight: 300;
+  font-size: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.donationFrequency {
+  margin-right: 0.5rem;
+}
+
+.moneyBtnContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.moneyBtn {
+  flex-grow: 1;
+  font-size: 1.5rem;
+  width: 30%;
+  margin: 1rem 1rem 1rem 0;
+  padding: 2rem 5rem;
+  outline: none;
+  background-color: white;
+  border: 3px solid var(--theme3-100);
+}
+
+.moneyBtn:last-of-type {
+  padding: 1rem 2rem;
+}
+
+.moneyBtn:focus:not(.moneyBtn:last-of-type) {
+  background-color: var(--theme1-070);
+}
+
+.submitBtn {
+  width: 100%;
+  margin: auto;
+  padding: 0.7rem 1.4rem;
+  outline: none;
+  border: none;
+  background-color: var(--theme1-100);
+  border-radius: 12px;
+  box-shadow: 2px 2px 6px rgb(206, 206, 206);
+}
+
+@media (max-width: 1200px) {
+  .row {
+    width: 100%;
+  }
+}
+
+@media (max-width: 860px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .info,
+  .donate {
+    width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .row {
+    margin: 2rem auto;
+    width: 95%;
+    padding: 2rem 0;
+  }
+
+  .info p {
+    text-align: justify;
+  }
+
+  .moneyBtn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  .info,
+  .donate {
+    padding: 1rem 2rem;
+  }
+
+  .donationFrequency,
+  .inputGroup {
+    font-size: 1rem;
+  }
+
+  .donate h3 {
+    font-size: 2rem;
+  }
+
+  .submitBtn {
+    width: 90%;
+  }
+
+  .donate form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .frequency {
+    margin-bottom: 0;
+  }
+
+  .money h1 {
+    width: 90%;
+  }
+}

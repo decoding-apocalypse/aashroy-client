@@ -1,0 +1,175 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create {
+  display: none;
+}
+
+.loginContainer {
+  width: 80%;
+  margin: auto;
+  padding: 2rem;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  box-shadow: 2px 2px 20px rgb(200, 200, 200);
+}
+
+.left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.left img {
+  width: 85%;
+  margin-bottom: 1rem;
+}
+
+.left a {
+  font-size: 1.5rem;
+  text-decoration: underline;
+}
+
+.right {
+  width: 50%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right form {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+  margin: 4rem 0;
+}
+
+.right form input {
+  margin: 1rem auto;
+  width: 80%;
+  border-bottom: 2px solid var(--theme2-100);
+  background-size: 32px;
+  background-repeat: no-repeat;
+  text-indent: 36px;
+  padding: 5px 3px;
+  transition: 0.3s;
+}
+
+.right form input.email {
+  background-image: url("../../assets/icons/email.png");
+}
+
+.right form input.password {
+  background-image: url("../../assets/icons/password.png");
+}
+
+.right form input:focus,
+.right form input:not(:placeholder-shown) {
+  background-image: none;
+  text-indent: 0px;
+}
+
+.right form button {
+  width: fit-content;
+  margin: auto;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  background-color: var(--theme4-100);
+}
+
+.icons img {
+  width: 42px;
+  margin: 0 0.5rem;
+}
+
+.errorMsg {
+  color: rgb(255, 86, 86);
+  margin-bottom: -1rem;
+  text-align: center;
+}
+
+.loggedIn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loggedIn h2 {
+  font-size: 4rem;
+}
+
+.loggedIn a {
+  text-align: center;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  background-color: var(--theme4-100);
+}
+
+@media only screen and (max-width: 1020px) {
+  .left {
+    width: 40%;
+  }
+
+  .right {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 880px) {
+  .right form input {
+    width: 90%;
+  }
+
+  .right {
+    width: 100%;
+  }
+
+  .left {
+    display: none;
+  }
+  .create {
+    position: relative;
+    bottom: 15px;
+    display: block;
+    font-size: 18px;
+    text-decoration: underline;
+  }
+
+  .right form button {
+    margin: auto;
+    padding: 0.7rem 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 630px) {
+  .loginContainer {
+    width: 95%;
+    margin: 5px;
+    padding: 5px;
+  }
+
+  .right form input {
+    width: 100%;
+  }
+
+  .errorMsg {
+    font-size: 0.8rem;
+  }
+  .icons img {
+    width: 23px;
+    margin: 0 0.5rem;
+  }
+
+  .create {
+    font-size: 1rem;
+  }
+}

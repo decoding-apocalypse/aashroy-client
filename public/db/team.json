@@ -1,0 +1,40 @@
+{
+  "team": [
+    {
+      "name": "Sayahnneeta Dutta",
+      "img": "Sayan.jpg",
+      "links": {
+        "github": "https://www.github.com/Sayahnneeta",
+        "linkedin": "https://www.linkedin.com/in/sayahnneeta-dutta-2b4525187/",
+        "facebook": "https://www.facebook.com/profile.php?id=100004857528784"
+      }
+    },
+    {
+      "name": "Vikas",
+      "img": "Vikas.jpg",
+      "links": {
+        "github": "https://www.github.com/vikas528",
+        "linkedin": "https://www.linkedin.com/in/vikas-suthar-bb4678200/",
+        "facebook": "https://www.facebook.com/vikas.makkar.357"
+      }
+    },
+    {
+      "name": "Jay Mehta",
+      "img": "Jay.jpg",
+      "links": {
+        "github": "https://www.github.com/BitsJayMehta173",
+        "linkedin": "https://www.linkedin.com/in/jay-mehta-670459178/",
+        "facebook": "https://www.facebook.com/jay.mehta.7543653"
+      }
+    },
+    {
+      "name": "Pratik Majumdar",
+      "img": "Pratik.jpg",
+      "links": {
+        "github": "https://www.github.com/codadept",
+        "facebook": "https://www.facebook.com/itspratikmaj",
+        "linkedin": "https://www.linkedin.com/in/codadept"
+      }
+    }
+  ]
+}

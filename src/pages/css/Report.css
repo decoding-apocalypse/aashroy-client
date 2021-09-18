@@ -1,0 +1,135 @@
+.report-content {
+  text-align: center;
+  /* font-family: 'Anton', sans-serif; */
+  /* color: black; */
+  letter-spacing: 1px;
+  margin: 20px;
+}
+.report-main {
+  text-align: justify;
+  padding: 40px;
+  font-size: 23px;
+  color: black;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-outline-info {
+  position: relative;
+  width: 40%;
+  line-height: 40px;
+  margin: 60px;
+  padding: 5px 40px;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid var(--theme1-100);
+  transition: color 0.2s;
+  border-radius: 20px;
+  color: var(--theme1-100);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.reportContainer {
+  display: flex;
+}
+
+.report-bg {
+  width: 40%;
+}
+
+.report-bg img {
+  width: 100%;
+}
+
+/* .report-bg
+{
+    width: 50%;
+    position: absolute;
+    display: flex;
+    flex-direction: column !important;
+    left: 50%;
+    top: 18%;
+    z-index: 2;
+} */
+
+/* report-form */
+
+.fname {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.report-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.report-form form input {
+  text-align: center;
+}
+
+.report-form input::placeholder {
+  text-align: center;
+}
+
+.submit {
+  width: 40%;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  border: 2px solid var(--theme1-100);
+}
+
+.submit:hover {
+  background-color: var(--theme1-100);
+}
+.form-heading {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.report-form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  position: relative;
+  color: black;
+}
+
+@media (max-width: 1080px) {
+  .report-main p {
+    font-size: 1rem;
+  }
+
+  .report-main button {
+    width: 60%;
+  }
+}
+
+@media (max-width: 860px) {
+  .reportContainer {
+    flex-direction: column;
+  }
+  .report-main {
+    width: 100%;
+  }
+  .report-bg {
+    width: 80%;
+    margin: auto;
+  }
+
+  .report-main button {
+    margin: 20px;
+  }
+}

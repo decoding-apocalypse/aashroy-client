@@ -1,0 +1,132 @@
+.Home {
+  text-align: center;
+}
+
+#carousel .carousel-item {
+  position: relative;
+  height: 50vh;
+}
+
+#carousel .carousel-item img {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+#home-map {
+  position: relative;
+}
+
+#home-map img {
+  position: relative;
+  /* background-color: var(--theme1-070); */
+  width: 90%;
+  /* height: 100%; */
+}
+
+#upload-png {
+  height: 40px;
+}
+
+#upload-img {
+  padding: 10px 0 10px 0;
+}
+
+/* <Upload button> */
+#upload-img a {
+  color: var(--theme1-100);
+  text-align: center;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+#upload-img .donate-button {
+  display: inline-block;
+  line-height: 40px;
+  margin: 20px;
+  padding: 5px 40px;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid var(--theme1-100);
+  transition: color 0.2s;
+  border-radius: 20px;
+}
+
+#upload-img .donate-button:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: var(--theme1-100);
+  height: 200px;
+  width: 300px;
+  border-radius: 50%;
+}
+
+#upload-img .donate-button:hover {
+  color: #fff;
+}
+
+#upload-img .donate-button:before {
+  left: -28px;
+  bottom: 100%;
+  transition: all 0.5s;
+}
+
+#upload-img .donate-button:hover:before {
+  bottom: -50px;
+}
+/* </Upload button> */
+
+#home-info img {
+  height: 200px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#home-info h2 {
+  font-weight: bold;
+}
+
+#home-info .infos {
+  position: relative;
+  display: inline-block;
+  width: 400px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#home-info .infos span {
+  font-size: 17px;
+}
+
+#home-info .infos h4 {
+  font-weight: bold;
+}
+
+@media screen and (min-width: 360px) and (max-width: 480px) {
+  #home-info h2 {
+    font-size: 25px;
+  }
+
+  #home-info .infos {
+    width: 360px;
+  }
+
+  #home-info .infos h4 {
+    font-size: 20px;
+  }
+
+  #home-info .infos span {
+    font-size: 15px;
+  }
+
+  #upload-img a {
+    font-size: 20px;
+  }
+
+  #upload-img .donate-button {
+    padding: 0 25px;
+  }
+}

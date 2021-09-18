@@ -1,0 +1,172 @@
+/* .navbar {
+  height: var(--navbar-height-pc);
+} */
+
+.navbar-brand {
+  margin-left: 20px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.navbar-brand img {
+  padding: 0;
+  width: 100px;
+}
+
+.nav-item {
+  position: relative;
+  text-align: center;
+}
+
+.hover-anim {
+  font-size: 20px;
+  padding: 0 20px 0 20px;
+}
+
+.hover-anim::before {
+  position: absolute;
+  content: "";
+  background-color: var(--theme1-100);
+  height: 3px;
+  left: 50%;
+  width: 4.5%;
+  transform: translate(-50%, 0) scaleX(0);
+  bottom: 3px;
+  transition: 0.25s;
+}
+
+.hover-anim:hover::before {
+  width: 90%;
+  transform: translate(-50%, 0) scaleX(1);
+}
+
+#nav-btns {
+  position: absolute;
+  right: 2vw;
+  top: 50%;
+}
+
+#nav-btns a {
+  transform: translate(0, -50%);
+  padding: 5px 20px;
+  display: inline-block;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--theme1-100);
+  margin-right: 5px;
+  border-radius: 8px;
+  transition: color 0.2s;
+}
+
+#nav-btns a:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: var(--theme1-100);
+  height: 200px;
+  width: 250px;
+  border-radius: 50%;
+  left: -20px;
+  bottom: 100%;
+  transition: all 0.5s;
+}
+
+#nav-btns a:hover {
+  color: #fff;
+}
+
+#nav-btns a:hover:before {
+  bottom: -50px;
+}
+
+#profile {
+  display: flex;
+  width: 12vw;
+  height: 50px;
+  border-radius: 12px;
+  box-shadow: 2px 2px 20px rgb(233, 233, 233);
+  padding: 0.5rem;
+  position: absolute;
+  right: 10vw;
+}
+
+#profile .user-img {
+  width: 30%;
+}
+
+#profile .user-img img {
+  height: 100%;
+}
+
+#profile .user-details {
+  width: 100%;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#profile .user-details p {
+  margin: 0;
+}
+
+@media screen and (min-width: 1220px) and (max-width: 1344px) {
+  .hover-anim {
+    padding: 0 0.8vw 0 0.8vw;
+  }
+}
+
+@media screen and (min-width: 1132px) and (max-width: 1220px) {
+  .hover-anim {
+    padding: 0 0.4vw 0 0.4vw;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1132px) {
+  .navbar-brand {
+    margin-left: 0px;
+  }
+
+  .hover-anim {
+    padding: 0 0.4vw 0 0.4vw;
+  }
+
+  #nav-btns {
+    right: 0;
+  }
+
+  #nav-btns a {
+    padding: 2px 15px;
+  }
+
+  .hover-anim {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  #nav-btns {
+    position: relative;
+    margin-top: 20px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  #nav-btns a {
+    margin: 0 10px;
+  }
+
+  #profile {
+    position: relative;
+    margin: 1rem 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 34vw;
+  }
+}
+
+@media (max-width: 500px) {
+  #profile {
+    width: 60vw;
+  }
+}

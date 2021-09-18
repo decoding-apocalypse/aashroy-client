@@ -1,0 +1,35 @@
+.Card {
+  margin: 0 4rem 2rem 4rem;
+}
+
+.Card-img {
+  margin: auto;
+  width: 200px;
+}
+
+.Card-img img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.Card-details {
+  width: 100%;
+}
+
+.Card-details-name {
+  font-style: italic;
+  color: rgb(48, 48, 48);
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.Card-details-links {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.Card-details-links a img {
+  width: 40px;
+}

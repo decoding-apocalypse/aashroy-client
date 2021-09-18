@@ -1,0 +1,25 @@
+/* .root {
+} */
+
+.bg {
+  width: 100%;
+  height: 400px;
+  background-color: var(--theme4-100);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.bg h1 {
+  letter-spacing: 0.5rem;
+}
+
+.teamContainer {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  transform: translateY(-100px);
+}

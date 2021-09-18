@@ -1,0 +1,59 @@
+.Error404 {
+  transition: all 0.6s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.error-main {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fof h1 {
+  font-size: 10vw;
+  display: inline-block;
+  padding-right: 12px;
+  animation: type 0.5s alternate infinite;
+  margin: 0;
+}
+
+@keyframes type {
+  from {
+    box-shadow: inset -3px 0px 0px #888;
+  }
+  to {
+    box-shadow: inset -3px 0px 0px transparent;
+  }
+}
+
+.Error404 h4 {
+  width: 90%;
+  font-size: 2rem;
+  opacity: 0.5;
+  text-align: center;
+}
+
+.Error404 p {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.Error404 p a {
+  color: #5dbfe6;
+}
+
+@media screen and (max-width: 500px) {
+  .fof h1 {
+    font-size: 18vw;
+  }
+  .Error404 h4 {
+    font-size: 1.8rem;
+  }
+
+  .Error404 p {
+    font-size: 1rem;
+  }
+}

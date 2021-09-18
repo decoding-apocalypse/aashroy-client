@@ -1,0 +1,44 @@
+footer {
+  background: #000;
+  /* height: var(--footer-height-pc); */
+  text-align: center;
+}
+
+#contact-us {
+  font-weight: bold;
+  color: white;
+  font-size: 20px;
+}
+
+#github-link {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: flex;
+  width: 32px;
+}
+
+#github-link a{
+  /* padding-top: 5px; */
+  margin: 0;
+  padding-bottom: 10px;
+  align-items: center;
+  margin: 0;
+  color: var(--theme2-100);
+}
+
+#github-link a:hover {
+  color: white;
+}
+
+@media screen and (min-width: 400px) and (max-width: 544px){
+  #copyright-info span{
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 400px){
+  #copyright-info span{
+    font-size: 10px;
+  }
+}

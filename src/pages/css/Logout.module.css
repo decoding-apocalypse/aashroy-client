@@ -1,0 +1,24 @@
+.logout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout h1 {
+  font-size: 5rem;
+}
+
+.logout p {
+  font-size: 2rem;
+}
+
+@media (max-width: 500px) {
+  .logout h1 {
+    font-size: 2.8rem;
+  }
+
+  .logout p {
+    font-size: 1.4rem;
+  }
+}
