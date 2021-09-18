@@ -39,7 +39,8 @@ const Login = (props) => {
     googleLoginCall(res, dispatchAuthState);
     // console.log(res);
   };
-  const googleFailure = () => {
+  const googleFailure = (err) => {
+    console.log(err);
     console.log("Failure :(");
   };
 
