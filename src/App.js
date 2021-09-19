@@ -119,7 +119,7 @@ function App() {
             <ForgotPassword title="Forgot Password | Aakanksha" />
           </Route>
 
-          <Route exact path="/edit">
+          <Route exact path="/profile/edit">
             <EditProfile title="EditProfile | Aakanksha" />
           </Route>
 
