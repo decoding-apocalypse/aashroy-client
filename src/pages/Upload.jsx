@@ -33,28 +33,29 @@ const Upload = (props) => {
   }, []);
 
   const url = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image/upload`;
-  // eslint-disable-next-line
   const [imageSelected, setImageSelected] = useState([]);
   // eslint-disable-next-line
   const [description, setDescripSelected] = useState();
   // eslint-disable-next-line
   const [uploadFiles, setUploadedFiles] = useState([]);
   const [uploadData, setUploadData] = useState(UploadDefaultState);
+  const [previewSource, setPreviewSource] = useState();
 
-  console.log(uploadData);
-
+  
   const handelingMapData = (lat, lng) => {
     setUploadData((previousData) => ({
       ...previousData,
       location: { lat, lng },
     }));
   };
-  const imageSelectedHandler = () => {
+  const uploadSelectedHandler = () => {
+    setPreviewSource(null);
+    descripSelectedHandler();
     setImageSelected(async (imageSelect) => {
       const formData = new FormData();
       formData.append("file", imageSelect);
       formData.append("upload_preset", process.env.REACT_APP_UPLOAD_PRESET);
-
+      
       const res = await fetch(url, {
         method: "post",
         body: formData,
@@ -68,14 +69,28 @@ const Upload = (props) => {
       setUploadedFiles((old) => [...old, resData]);
     });
   };
-
+  
+  const previewFile = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setPreviewSource(reader.result);
+    };
+  };
+  
   // eslint-disable-next-line
-  const descripSelectedHandler = () => {
-    setDescripSelected((event) => {
-      console.log(event);
+  const descripSelectedHandler = async () => {
+    setDescripSelected((text) => {
+      setUploadData((previousData) => ({
+        ...previousData,
+        descrip: text,
+      }));
+      // console.log(text);
     });
   };
-
+  
+  console.log(uploadData);
+  
   return (
     <main>
       <h2>Please Select Location</h2>
@@ -97,20 +112,32 @@ const Upload = (props) => {
                 accept="image/*"
                 onChange={(event) => {
                   setImageSelected(event.target.files[0]);
+                  previewFile(event.target.files[0]);
                 }}
               />
-              <label for="file-type-inp" id="file-type-inp-label">
+              <label htmlFor="file-type-inp" id="file-type-inp-label">
                 Choose a file
               </label>
+              <div id="chooseFile">
+                <div>Choosen file: {imageSelected.name == null ? "none" : imageSelected.name}</div>
+              </div>
+              {previewSource && (
+                <img
+                  src={previewSource}
+                  alt="chosen"
+                  style={{ height: "300px", width: "300px" }}
+                />
+              )}
               <input
                 id="text-type-inp"
                 type="text"
                 placeholder="description..."
+                value={description}
                 onChange={(event) => {
-                  setDescripSelected(event);
+                  setDescripSelected(event.target.value);
                 }}
               />
-              <button onClick={imageSelectedHandler}>
+              <button onClick={uploadSelectedHandler}>
                 <img id="upload-img-btn" src="img/photo.png" alt="Upload"></img>{" "}
                 Upload
               </button>
