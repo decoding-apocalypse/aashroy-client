@@ -33,11 +33,12 @@ const EditProfile = lazy(() => import("./pages/EditProfile"));
 const Error404 = lazy(() => import("./pages/Error404"));
 
 function App() {
+  const apiUrl = process.env.REACT_APP_API_URL;
   axios.defaults.withCredentials = true;
   const { user, dispatchAuthState } = useContext(AuthContext);
   useEffect(() => {
     axios
-      .get("/users/login")
+      .get(`${apiUrl}/users/login`)
       .then((res) => {
         if (res.data.isLoggedIn) {
           sessionLoginCall(res.data.user, dispatchAuthState);
