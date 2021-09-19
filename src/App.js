@@ -45,7 +45,7 @@ function App() {
         }
       })
       .catch();
-  }, [dispatchAuthState]);
+  }, [apiUrl, dispatchAuthState]);
   return (
     <Suspense fallback={<Loader />}>
       <div className="App">
