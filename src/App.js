@@ -12,6 +12,8 @@ import Footer from "./components/Footer";
 import { AuthContext } from "./context/AuthContext/AuthContext";
 
 import axios from "axios";
+import Cookies from "js-cookie";
+
 import { sessionLoginCall } from "./apiCalls";
 
 // Pages imports
@@ -33,19 +35,15 @@ const EditProfile = lazy(() => import("./pages/EditProfile"));
 const Error404 = lazy(() => import("./pages/Error404"));
 
 function App() {
-  const apiUrl = process.env.REACT_APP_API_URL;
   axios.defaults.withCredentials = true;
   const { user, dispatchAuthState } = useContext(AuthContext);
+
   useEffect(() => {
-    axios
-      .get(`${apiUrl}/users/login`)
-      .then((res) => {
-        if (res.data.isLoggedIn) {
-          sessionLoginCall(res.data.user, dispatchAuthState);
-        }
-      })
-      .catch();
-  }, [apiUrl, dispatchAuthState]);
+    const cookieUser = Cookies.get("user");
+    if (cookieUser) {
+      sessionLoginCall(JSON.parse(cookieUser), dispatchAuthState);
+    }
+  }, [dispatchAuthState]);
   return (
     <Suspense fallback={<Loader />}>
       <div className="App">

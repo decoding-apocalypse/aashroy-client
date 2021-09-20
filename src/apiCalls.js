@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -11,6 +12,7 @@ export const loginCall = async (userCredential, dispatch) => {
       return;
     }
     dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+    Cookies.set("user", JSON.stringify(res.data));
   } catch (err) {
     console.log(err);
     dispatch({ type: "LOGIN_FAILURE", payload: err });
@@ -63,6 +65,7 @@ export const signupCall = async (userCredential, dispatch) => {
           dispatch({ type: "SIGNUP_FAILURE", payload: res.data });
           return;
         }
+        Cookies.set("user", JSON.stringify(res.data));
         dispatch({ type: "SIGNUP_SUCCESS", payload: res.data });
       })
       .catch((err) => {
@@ -80,6 +83,7 @@ export const logoutCall = (userCredential, dispatch) => {
     .post(`${apiUrl}/users/logout`)
     .then((res) => {
       if (res.data.successfull) {
+        Cookies.remove("user");
         dispatch({ type: "LOGOUT_SUCCESS" });
       } else {
         dispatch({ type: "LOGOUT_FAILURE", payload: res.data.message });
@@ -101,6 +105,7 @@ export const googleLoginCall = (userCredential, dispatch) => {
         if (res.data.message) {
           dispatch({ type: "GOOGLE_LOGIN_FAILURE", payload: res.data });
         }
+        Cookies.set("user", JSON.stringify(res.data));
         dispatch({ type: "GOOGLE_LOGIN_SUCCESS", payload: res.data });
       })
       .catch((err) => {
