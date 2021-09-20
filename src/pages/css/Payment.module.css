@@ -243,3 +243,13 @@ span.error {
     font-size: 18px;
   }
 }
+
+@media (max-width: 450px) {
+  .container form {
+    width: 360px;
+  }
+
+  .container form .inputBox span {
+    font-size: 0.75rem;
+  }
+}

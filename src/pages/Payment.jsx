@@ -1,15 +1,15 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { useLocation, Redirect, useHistory } from "react-router-dom";
+import { useLocation, Redirect } from "react-router-dom";
 
 import { AuthContext } from "../context/AuthContext/AuthContext";
 
 import axios from "axios";
 
+import SuccessMsg from "../components/SuccessMsg";
+
 import styles from "./css/Payment.module.css";
 
 const Payment = (props) => {
-  const history = useHistory();
-
   const searchParam = useLocation().search;
 
   const amount = new URLSearchParams(searchParam).get("amount");
@@ -28,6 +28,9 @@ const Payment = (props) => {
   const { user } = useContext(AuthContext);
 
   const [paymentInfo, setPaymentInfo] = useState(DEFAULT_PAYMENT_INFO);
+
+  const [isSuccess, setIsSuccess] = useState(false);
+  console.log(isSuccess);
 
   const [error, setError] = useState("");
 
@@ -56,7 +59,7 @@ const Payment = (props) => {
         .then((res) => {
           if (res.data.success) {
             setError("");
-            history.push("/");
+            setIsSuccess(true);
           } else {
             setError(res.message);
           }
@@ -97,6 +100,15 @@ const Payment = (props) => {
   useEffect(() => {
     document.title = props.title;
   }, [props.title]);
+
+  if (isSuccess) {
+    return (
+      <SuccessMsg
+        message="Thank you for donating for the special cause!"
+        subMsg="Thank you for your generous gift to Aashroy. We are thrilled to have your support. Through your donation we have been able to accomplish the goal and continue working towards helping the homeless persons. "
+      />
+    );
+  }
 
   if (amount) {
     return (
@@ -249,6 +261,7 @@ const Payment = (props) => {
       </main>
     );
   }
+
   return <Redirect to="/donation/money" />;
 };
 

@@ -32,6 +32,10 @@
   font-size: 2rem;
 }
 
+.msg {
+  text-align: center;
+}
+
 .donationCards p {
   color: rgb(0, 0, 0);
 }
@@ -198,4 +202,24 @@
 
 .information {
   display: none;
+}
+
+@media (max-width: 500px) {
+  .information {
+    font-size: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .topArea {
+    justify-items: center;
+  }
+
+  .topArea span {
+    font-size: 1.5rem;
+  }
+
+  .profilepic {
+    width: 150px;
+    height: 150px;
+  }
 }

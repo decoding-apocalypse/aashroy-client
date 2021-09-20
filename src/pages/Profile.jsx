@@ -149,7 +149,7 @@ const Profile = (props) => {
             <div className={styles.information} id="donations">
               {isFetching || error ? (
                 ""
-              ) : (
+              ) : donations && donations.length > 0 ? (
                 <div className={`${styles.donations}`}>
                   {donations &&
                     donations.map((d) => (
@@ -167,6 +167,10 @@ const Profile = (props) => {
                         </div>
                       </div>
                     ))}
+                </div>
+              ) : (
+                <div className={styles.msg}>
+                  You haven't made any donations yet :(
                 </div>
               )}
             </div>

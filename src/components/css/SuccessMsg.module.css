@@ -1,0 +1,25 @@
+.Msg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.Msg h1 {
+  font-size: 5rem;
+}
+
+.Msg p {
+  font-size: 2rem;
+}
+
+@media (max-width: 717px) {
+  .Msg h1 {
+    font-size: 2.8rem;
+  }
+
+  .Msg p {
+    font-size: 1.4rem;
+  }
+}
