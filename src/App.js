@@ -20,6 +20,7 @@ import { sessionLoginCall } from "./apiCalls";
 const Home = lazy(() => import("./pages/Home"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
 const Donation = lazy(() => import("./pages/Donation"));
+const Payment = lazy(() => import("./pages/Payment"));
 const Money = lazy(() => import("./pages/Money"));
 const Stuffs = lazy(() => import("./pages/Stuffs"));
 const Publicaware = lazy(() => import("./pages/Publicaware"));
@@ -64,6 +65,14 @@ function App() {
           <Route exact path="/donation/money">
             {user ? (
               <Money title="Donate Money | Aakanksha" />
+            ) : (
+              <Signup title="Signup | Aakanksha" />
+            )}
+          </Route>
+
+          <Route exact path="/donation/money/payment">
+            {user ? (
+              <Payment title="Payment | Aakanksha" />
             ) : (
               <Signup title="Signup | Aakanksha" />
             )}

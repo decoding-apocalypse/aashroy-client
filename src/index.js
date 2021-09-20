@@ -4,11 +4,14 @@ import { BrowserRouter as Router } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import { AuthContextProvider } from "./context/AuthContext/AuthContext";
+import { DonationContextProvider } from "./context/DonationContext/DonationContext";
 
 ReactDOM.render(
   <Router>
     <AuthContextProvider>
-      <App />
+      <DonationContextProvider>
+        <App />
+      </DonationContextProvider>
     </AuthContextProvider>
   </Router>,
   document.getElementById("root")

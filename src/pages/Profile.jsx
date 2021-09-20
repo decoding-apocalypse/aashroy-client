@@ -1,15 +1,26 @@
 import React, { useEffect, useContext } from "react";
 import { Link, Redirect } from "react-router-dom";
 
+import { donationListCall } from "../apiCalls";
 import { AuthContext } from "../context/AuthContext/AuthContext";
+import { DonationContext } from "../context/DonationContext/DonationContext";
 
 import styles from "./css/Profile.module.css";
 
 const Profile = (props) => {
   const { user } = useContext(AuthContext);
+
   useEffect(() => {
     document.title = props.title;
-  }, [props.title]);
+  }, [props.title, user._id]);
+
+  const { error, donations, isFetching, dispatchDonationState } = useContext(
+    DonationContext
+  );
+
+  useEffect(() => {
+    donationListCall(user._id, dispatchDonationState);
+  }, [dispatchDonationState, user._id]);
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -136,48 +147,28 @@ const Profile = (props) => {
             </div>
 
             <div className={styles.information} id="donations">
-              <div className={`${styles.donations}`}>
-                <div className={styles.donationCards}>
-                  <br></br>
-                  <h5>Amount</h5>
-                  <h3>₹ 1000</h3>
-                  <div className={styles.donationdate}>
-                    <p>Date:</p>
-                    <p>Transaction ID:</p>
-                    <p>From:</p>
-                  </div>
+              {isFetching || error ? (
+                ""
+              ) : (
+                <div className={`${styles.donations}`}>
+                  {donations &&
+                    donations.map((d) => (
+                      <div key={d._id} className={styles.donationCards}>
+                        <br></br>
+                        <h5>Amount</h5>
+                        <h3>₹ {d.amount}</h3>
+                        <div className={styles.donationdate}>
+                          <p>Date: {new Date(d.date).toLocaleString()}</p>
+                          <p>
+                            Transaction ID:{" "}
+                            {d.transactionID.substring(0, 10) + "..."}
+                          </p>
+                          <p>From: {user.name}</p>
+                        </div>
+                      </div>
+                    ))}
                 </div>
-                <div className={styles.donationCards}>
-                  <br></br>
-                  <h5>Amount</h5>
-                  <h3>₹ 1000</h3>
-                  <div className={styles.donationdate}>
-                    <p>Date:</p>
-                    <p>Transaction ID:</p>
-                    <p>From:</p>
-                  </div>
-                </div>
-                <div className={styles.donationCards}>
-                  <br></br>
-                  <h5>Amount</h5>
-                  <h3>₹ 1000</h3>
-                  <div className={styles.donationdate}>
-                    <p>Date:</p>
-                    <p>Transaction ID:</p>
-                    <p>From:</p>
-                  </div>
-                </div>
-                <div className={styles.donationCards}>
-                  <br></br>
-                  <h5>Amount</h5>
-                  <h3>$ 1000</h3>
-                  <div className={styles.donationdate}>
-                    <p>Date:</p>
-                    <p>Transaction ID:</p>
-                    <p>From:</p>
-                  </div>
-                </div>
-              </div>
+              )}
             </div>
 
             <div className={styles.information} id="awards">

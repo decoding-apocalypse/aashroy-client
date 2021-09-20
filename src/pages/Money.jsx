@@ -1,12 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import styles from "./css/Money.module.css";
 
 const Money = (props) => {
+  const [amount, setAmount] = useState(0);
+
   useEffect(() => {
     document.title = props.title;
   }, [props.title]);
+
+  const handleAmount = (e) => {
+    setAmount(e.target.value);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -50,24 +56,28 @@ const Money = (props) => {
                 value="50"
                 name="amount"
                 className={styles.moneyBtn}
+                onClick={handleAmount}
               />
               <input
                 type="button"
                 value="100"
                 name="amount"
                 className={styles.moneyBtn}
+                onClick={handleAmount}
               />
               <input
                 type="button"
                 value="500"
                 name="amount"
                 className={styles.moneyBtn}
+                onClick={handleAmount}
               />
               <input
                 type="button"
                 value="1000"
                 name="amount"
                 className={styles.moneyBtn}
+                onClick={handleAmount}
               />
               <input
                 name="amount"
@@ -76,11 +86,20 @@ const Money = (props) => {
                 max="10000"
                 placeholder="&#8377; Other amount"
                 className={styles.moneyBtn}
+                onChange={handleAmount}
               />
             </div>
-            <button className={styles.submitBtn} type="submit">
-              Proceed to Payment
-            </button>
+            {amount > 0 ? (
+              <div className={styles.submitBtn}>
+                <Link to={`/donation/money/payment?amount=${amount}`}>
+                  Proceed to Payment
+                </Link>
+              </div>
+            ) : (
+              <button disabled className={styles.submitBtn}>
+                Select an amount
+              </button>
+            )}
           </form>
         </div>
       </div>

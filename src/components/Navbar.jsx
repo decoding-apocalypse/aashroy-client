@@ -17,7 +17,7 @@ const Navbar = (props) => {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          <img src="img/icons/logo.png" alt="logo" />
+          <img src="/img/icons/logo.png" alt="logo" />
         </Link>
         <button
           className="navbar-toggler"

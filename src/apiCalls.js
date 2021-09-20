@@ -119,3 +119,21 @@ export const googleLoginCall = (userCredential, dispatch) => {
 export const sessionLoginCall = (userCredential, dispatch) => {
   dispatch({ type: "LOGIN_SUCCESS", payload: userCredential });
 };
+
+export const donationListCall = (userId, dispatch) => {
+  dispatch({ type: "DONATIONS_FETCH_START", payload: userId });
+  axios
+    .get(`${apiUrl}/donation/payment`, {
+      params: {
+        userId,
+      },
+    })
+    .then((res) => {
+      dispatch({ type: "DONATIONS_FETCH_SUCCESS", payload: res.data });
+      return;
+    })
+    .catch((err) => {
+      dispatch({ type: "DONATIONS_FETCH_FAILURE", payload: err });
+      return;
+    });
+};
