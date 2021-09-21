@@ -110,19 +110,36 @@
   margin: 0;
 }
 
-@media screen and (min-width: 1220px) and (max-width: 1344px) {
+@media screen and (min-width: 1311px) and (max-width: 1344px) {
   .hover-anim {
     padding: 0 0.8vw 0 0.8vw;
   }
 }
 
-@media screen and (min-width: 1132px) and (max-width: 1220px) {
+@media screen and (min-width: 1132px) and (max-width: 1310px) {
   .hover-anim {
     padding: 0 0.4vw 0 0.4vw;
+  }
+
+  #profile {
+    right: 12vw;
+    width: 12.5vw;
+  }
+  #profile .user-details {
+    font-size: 0.9rem;
   }
 }
 
 @media screen and (min-width: 992px) and (max-width: 1132px) {
+  #profile {
+    right: 12vw;
+    width: 13vw;
+  }
+
+  #profile .user-details {
+    font-size: 0.8rem;
+  }
+
   .navbar-brand {
     margin-left: 0px;
   }
