@@ -19,23 +19,23 @@
   transform: scale(1.02);
 }
 
-.logo{
-    position: relative;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: var(--theme3-100);
-    height: 130px;
-    width: 130px;
-    border-radius: 50%;
-    z-index: 1;
+.logo {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--theme3-100);
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  z-index: 1;
 }
 
 .logo img {
-    position: relative;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 132px;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 132px;
 }
 
 .aware-content {
@@ -166,7 +166,6 @@
 
 .Fund-Raiser {
   padding: 15px;
-  background-color: rgb(207, 205, 205);
 }
 
 .slogans {

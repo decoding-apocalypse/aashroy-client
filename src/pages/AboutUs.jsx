@@ -150,7 +150,6 @@ const AboutUs = (props) => {
       </div>
       <div className="about-partners">
         <div className="partners-content">
-          <h2>Join us in our fight now!</h2>
           <div className=".">
             <table className="about-ngoList">
               <thead>

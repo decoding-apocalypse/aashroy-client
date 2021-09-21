@@ -1,13 +1,7 @@
-*,
-*::after,
-*::before {
-  padding: 0;
-  margin: 0;
+td {
+  word-break: break-all;
 }
-.AboutUs {
-  padding: 0 0;
-  
-}
+
 .about-img {
   height: 65vh;
   position: relative;
@@ -22,7 +16,7 @@
 }
 
 .about-content {
-  display: inline-block ;
+  display: inline-block;
   font-size: 23px;
   line-height: 1.3em;
   margin-bottom: 10px;
@@ -40,16 +34,15 @@
   padding-top: 3rem;
   text-align: center;
   background-color: #f3f1f5;
-  height: 50vh;
 }
 .takeAction {
-  height: 30vh;
   background-color: #f0d9ff;
   text-align: justify;
   padding-left: 10rem;
   padding-right: 10rem;
   font-size: 24px;
   padding-top: 3rem;
+  padding-bottom: 1rem;
 }
 .about-card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -59,9 +52,6 @@
   height: 24rem;
   background-color: white;
   font-size: 19px;
-  position: absolute;
-  left: 40%;
-  top: 120%;
   z-index: 2;
 }
 .about-card-2 {
@@ -72,8 +62,6 @@
   height: 24rem;
   background-color: white;
   font-size: 19px;
-  position: absolute;
-  left: 60%;
   top: 120%;
   z-index: 2;
 }
@@ -85,13 +73,21 @@
   height: 24rem;
   background-color: white;
   font-size: 19px;
-  position: absolute;
-  left: 80%;
-  top: 120%;
   z-index: 2;
 }
+
+.about-card,
+.about-card-2,
+.about-card-3 {
+  margin-bottom: 1rem;
+}
 .about-part {
-  background-color: #f0d9ff;
+  /* background-color: #f0d9ff; */
+  margin: 2rem 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .card-btn {
   font-size: larger;
@@ -147,117 +143,90 @@ tr:nth-child(even) {
   color: white;
   text-align: center;
 }
-@media (min-width: 360px)  {
-
-  
-  .about-card
-  {
-    position: absolute;
+@media (min-width: 360px) {
+  .about-card {
+    /* position: absolute;
     top: 130%;
-    left: 5%;
+    left: 5%; */
     /* display: none; */
   }
-  .about-card-2
-  {
-    position: absolute;
+  .about-card-2 {
+    /* position: absolute;
     top: 195%;
-    left: 5%;
+    left: 5%; */
     /* display: none; */
   }
-  .about-card-3
-  {
-    position: absolute;
+  .about-card-3 {
+    /* position: absolute;
     top: 260%;
-    left: 5%;
+    left: 5%; */
     /* display: none; */
   }
-  .about-ngoList
-  {
-    width: 99.5vw;
-  }
-  .about-partners
-  {
+  .about-partners {
     background-color: #bfa2db;
-   /* height: 80vh; */
+    /* height: 80vh; */
     padding-top: 20px;
     padding: 0px;
     height: min-content;
-   
   }
-  .about-content
-  {
+  .about-content {
     display: inline-block;
     padding-left: 20px;
     padding-right: 20px;
     font-size: 23px;
   }
-  .AboutUs-box
-  {
+  .AboutUs-box {
     padding: 0;
-    height: 250vh;
   }
-  .takeAction
-  {
+  .takeAction {
     padding-top: 50px;
     padding-left: 0;
     padding-right: 0;
   }
-  .takeAction-content
-  {
-   
+  .takeAction-content {
     padding-left: 10px;
     padding-right: 10px;
   }
-  tbody
-  {
+  tbody {
     font-size: 15px;
   }
-} 
-@media (min-width: 1080px)   
-{
-  .takeAction
-  {
+}
+@media (min-width: 1080px) {
+  .takeAction {
     padding-left: 20px;
   }
- h2
-  {
+  h2 {
     padding-left: 20px;
     /* font-size: 20px; */
   }
-  p
-  {
+  p {
     font-size: 18px;
   }
-  .about-card
-  {
-    position: absolute;
+  .about-card {
+    /* position: absolute;
     top: 113%;
     left: 40%;
-    width: 18%;
+    width: 18%; */
     /* height: 55%; */
     /* display: none; */
   }
-  .about-card-2
-  {
-    position: absolute;
+  .about-card-2 {
+    /* position: absolute;
     top: 113%;
     left: 60%;
-    width: 18%;
+    width: 18%; */
     /* height: 55%; */
     /* display: none; */
   }
-  .about-card-3
-  {
-    position: absolute;
+  .about-card-3 {
+    /* position: absolute;
     top: 113%;
     left: 80%;
-    width: 18%;
+    width: 18%; */
     /* height: 55%; */
     /* display: none; */
   }
-  .AboutUs-box
-  {
+  .AboutUs-box {
     padding: 0;
-    height: 70vh;
   }
 }

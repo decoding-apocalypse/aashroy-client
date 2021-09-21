@@ -127,6 +127,8 @@
 }
 
 .markerDesc {
+  width: 200px;
+  margin: auto;
   margin-bottom: 4px;
 }
 
