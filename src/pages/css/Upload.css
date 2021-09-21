@@ -72,6 +72,12 @@ main h2 {
   bottom: -100%;
 }
 
+.uploadImgName {
+  display: inline;
+  color: var(--theme1-100);
+  font-weight: 700;
+}
+
 @media (max-width: 500px) {
   #location-map {
     width: 90vw;
@@ -92,6 +98,7 @@ main h2 {
   color: grey;
   outline: none;
   cursor: pointer;
+  margin-bottom: 1rem;
 }
 
 #upload-btn #text-type-inp {

@@ -107,6 +107,29 @@
   font-weight: bold;
 }
 
+.markerImg {
+  height: 150px;
+  width: 100% !important;
+}
+
+.markerUser {
+  color: var(--theme1-100);
+  font-weight: 700;
+  margin: 5px;
+  font-size: 1rem;
+}
+
+.markerDate {
+  margin: 0;
+  margin-top: 4px;
+  color: black;
+  text-decoration: underline;
+}
+
+.markerDesc {
+  margin-bottom: 4px;
+}
+
 @media screen and (min-width: 360px) and (max-width: 480px) {
   #home-info h2 {
     font-size: 25px;

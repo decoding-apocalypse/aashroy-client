@@ -40,24 +40,25 @@ const Home = (props) => {
       .then((res) => {
         // eslint-disable-next-line
         res.data.map((m) => {
-          const {location, date, img, description} = m;
-          setMarkers((previousData) => (
-            [...previousData, {
+          const { location, date, img, description, username } = m;
+          setMarkers((previousData) => [
+            ...previousData,
+            {
               lat: +location.lat["$numberDecimal"],
               lng: +location.lng["$numberDecimal"],
               time: date,
               imgUrl: img,
               descrip: description,
-            }]
-          ))
-        })
+              username,
+            },
+          ]);
+        });
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
   // console.log(markers);
-
 
   if (loadError) return <div>Error while loading maps</div>;
   if (!isLoaded) return <div>Loading Maps</div>;
@@ -151,11 +152,10 @@ const Home = (props) => {
           options={options}
           onLoad={onMapLoad}
         >
-          {(markers && markers.length) &&
+          {markers &&
+            markers.length &&
             markers.map((m, i) => (
-              <React.Fragment
-              key={i}
-              >
+              <React.Fragment key={i}>
                 <Marker
                   position={{
                     lat: m.lat,
@@ -175,11 +175,14 @@ const Home = (props) => {
                     <div>
                       <img
                         src={selected.imgUrl}
-                        alt="..."
-                        style={{ height: "200px" }}
+                        alt="Homeless"
+                        className="markerImg"
                       />
-                      <p>{new Date(selected.time).toLocaleDateString()}</p>
-                      <p>{selected.descrip}</p>
+                      <p className="markerDate">
+                        {new Date(selected.time).toLocaleDateString()}
+                      </p>
+                      <p className="markerUser">{selected.username}</p>
+                      <p className="markerDesc">{selected.descrip}</p>
                     </div>
                   </InfoWindow>
                 ) : null}
