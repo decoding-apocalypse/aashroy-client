@@ -31,7 +31,7 @@ const Map = (props) => {
   const [markers, setMarkers] = React.useState({
     lat: latitude,
     lng: longitude,
-    time: null,
+    time: new Date(),
   });
   const [selected, setSelected] = React.useState(null);
   const onMapClick = React.useCallback(

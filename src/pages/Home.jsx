@@ -1,12 +1,66 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import {
+  GoogleMap,
+  useLoadScript,
+  Marker,
+  InfoWindow,
+} from "@react-google-maps/api";
 import "./css/Home.css";
+import mapStyles from "../components/mapStyles";
+import axios from "axios";
+
+const libraries = ["places"];
+const options = {
+  styles: mapStyles,
+  disableDefaultUI: true,
+  zoomControl: true,
+};
 
 const Home = (props) => {
+  const { isLoaded, loadError } = useLoadScript({
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_API,
+    libraries: libraries,
+  });
+  const [markers, setMarkers] = React.useState([]);
+  const [selected, setSelected] = React.useState(null);
   useEffect(() => {
     document.title = props.title;
   }, [props.title]);
+
+  const mapRef = React.useRef();
+  const onMapLoad = React.useCallback((map) => {
+    mapRef.current = map;
+  }, []);
+
+  //fetching map data
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/upload`)
+      .then((res) => {
+        // eslint-disable-next-line
+        res.data.map((m) => {
+          const {location, date, img, description} = m;
+          setMarkers((previousData) => (
+            [...previousData, {
+              lat: +location.lat["$numberDecimal"],
+              lng: +location.lng["$numberDecimal"],
+              time: date,
+              imgUrl: img,
+              descrip: description,
+            }]
+          ))
+        })
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  // console.log(markers);
+
+
+  if (loadError) return <div>Error while loading maps</div>;
+  if (!isLoaded) return <div>Loading Maps</div>;
   return (
     <main className="Home">
       <div id="carousel">
@@ -87,7 +141,51 @@ const Home = (props) => {
         </div>
       </div>
       <div id="home-map">
-        <img src="img/assam.png" alt="Assam map"></img>
+        <GoogleMap
+          mapContainerStyle={{ width: "100%", height: "100%" }}
+          zoom={8}
+          center={{
+            lat: 26.2006,
+            lng: 92.9376,
+          }}
+          options={options}
+          onLoad={onMapLoad}
+        >
+          {(markers && markers.length) &&
+            markers.map((m, i) => (
+              <React.Fragment
+              key={i}
+              >
+                <Marker
+                  position={{
+                    lat: m.lat,
+                    lng: m.lng,
+                  }}
+                  onClick={() => {
+                    setSelected(m);
+                  }}
+                />
+                {selected ? (
+                  <InfoWindow
+                    position={{ lat: selected.lat, lng: selected.lng }}
+                    onCloseClick={() => {
+                      setSelected(null);
+                    }}
+                  >
+                    <div>
+                      <img
+                        src={selected.imgUrl}
+                        alt="..."
+                        style={{ height: "200px" }}
+                      />
+                      <p>{new Date(selected.time).toLocaleDateString()}</p>
+                      <p>{selected.descrip}</p>
+                    </div>
+                  </InfoWindow>
+                ) : null}
+              </React.Fragment>
+            ))}
+        </GoogleMap>
       </div>
       <div id="upload-img">
         <Link className="donate-button" to="/upload">

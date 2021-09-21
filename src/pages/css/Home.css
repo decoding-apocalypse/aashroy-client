@@ -14,7 +14,9 @@
   transform: translate(-50%, -50%);
 }
 #home-map {
+  margin-top: 1rem;
   position: relative;
+  height: 50rem;
 }
 
 #home-map img {
