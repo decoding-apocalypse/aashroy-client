@@ -1,26 +1,28 @@
-.EditProfile {
+#EditProfile {
   padding: 0;
   margin: 0;
   height: fit-content;
-}
-.edit-heading {
   text-align: center;
 }
+.edit-heading {
+  font-size: 55px;
+  margin-top: 20px;
+}
+
 .edit-content img {
-  width: 12%;
-  height: 12%;
-  position: relative;
-  left: 43%;
+  width: 150px;
+  height: 150px;
   padding: 0;
   margin: 0;
+  border-radius: 50%;
 }
 .user-img {
   position: relative;
   text-align: center;
-  font-size: 24px;
+  font-size: 20px;
 }
 .fname {
-  width: 100%;
+  width: 70vw;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -43,37 +45,46 @@
 .report-form input::placeholder {
   text-align: center;
 }
+
 .submit {
-  width: 30%;
-  margin: 40px;
-  padding: 1rem 2rem;
+  width: 120px;
+  margin-top: 1.5rem;
+  padding: 0.5rem 0;
   border-radius: 12px;
   border: 2px solid var(--theme1-100);
-  position: relative;
-  left: 30%;
+  text-align: center;
+  transition: all 0.3s;
 }
+
 .edit-form {
-  padding: 20px;
+  margin-top: 30px;
 }
+
+
 .submit:hover {
   background-color: var(--theme1-100);
+  color: white;
 }
 
 @media (min-width: 300px) and (max-width: 1080px) {
-  .edit-content img {
-    position: relative;
-    right: 30%;
-  }
   .user-img {
-    position: relative !important;
-    /* right:10% ; */
+    position: relative;
     text-align: center;
-    /* width: 100vw; */
   }
   .submit {
     width: fit-content;
     text-align: center;
     padding: 10px;
     margin: 10px;
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 500px) {
+  .fname {
+    width: 85vw;
+  }
+
+  .submit {
+    width: 150px;
   }
 }
