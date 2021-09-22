@@ -83,13 +83,13 @@ const Money = (props) => {
                 name="amount"
                 type="number"
                 min="1"
-                max="10000"
+                max="15000"
                 placeholder="&#8377; Other amount"
                 className={styles.moneyBtn}
                 onChange={handleAmount}
               />
             </div>
-            {amount > 0 ? (
+            {amount > 0 && amount < 100000 ? (
               <div className={styles.submitBtn}>
                 <Link to={`/donation/money/payment?amount=${amount}`}>
                   Proceed to Payment

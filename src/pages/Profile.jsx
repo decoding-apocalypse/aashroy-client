@@ -147,14 +147,7 @@ const Profile = (props) => {
                   onClick={handleClick}
                   href="#uploads"
                 >
-                  Help
-                </a>
-                <a
-                  className={styles.buttons}
-                  onClick={handleClick}
-                  href="#contacts"
-                >
-                  Contacts
+                  Uploads
                 </a>
               </div>
             </div>

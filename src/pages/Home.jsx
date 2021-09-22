@@ -182,7 +182,7 @@ const Home = (props) => {
                       <p className="markerDate">
                         {new Date(selected.time).toLocaleDateString()}
                       </p>
-                      <p className="markerUser">{selected.username}</p>
+                      <p className="markerUser">@{selected.username}</p>
                       <p className="markerDesc">{selected.descrip}</p>
                     </div>
                   </InfoWindow>
