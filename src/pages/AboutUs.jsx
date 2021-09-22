@@ -95,7 +95,7 @@ const AboutUs = (props) => {
               aria-label="Basic outlined example"
             >
               <button type="button" className="btn btn-outline-warning">
-                <a href="/donate">Donate Now</a>
+                <a href="/donation">Donate Now</a>
               </button>
             </div>
           </div>
