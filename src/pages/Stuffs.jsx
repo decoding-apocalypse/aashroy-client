@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { GoogleComponent } from "react-google-location";
 
 import { AuthContext } from "../context/AuthContext/AuthContext";
@@ -9,6 +10,7 @@ const API_KEY_GOOGLE = process.env.REACT_APP_GOOGLE_API;
 
 const Stuffs = (props) => {
   const { user } = useContext(AuthContext);
+  const history = useHistory();
   const [location, setLocation] = useState(null);
 
   const [items, setItems] = useState({
@@ -92,7 +94,7 @@ const Stuffs = (props) => {
     };
     console.log("Submitted");
     console.log(donationStuffData);
-    props.history.push("/");
+    history.push("/");
   };
 
   return (
