@@ -1,15 +1,20 @@
 import React, { useContext, useEffect, useState } from "react";
-import { GoogleComponent } from "react-google-location";
+import { useHistory } from "react-router-dom";
 
 import { AuthContext } from "../context/AuthContext/AuthContext";
 
 import styles from "./css/Stuffs.module.css";
 
-const API_KEY_GOOGLE = process.env.REACT_APP_GOOGLE_API;
-
 const Stuffs = (props) => {
+  const history = useHistory();
   const { user } = useContext(AuthContext);
-  const [location, setLocation] = useState(null);
+  const [location, setLocation] = useState({
+    latitude: 0,
+    longitude: 0,
+    place: "",
+    country: "",
+    state: "",
+  });
 
   const [items, setItems] = useState({
     clothes: 0,
@@ -21,7 +26,7 @@ const Stuffs = (props) => {
 
   const [donorDetails, setDonorDetails] = useState({
     name: user.name,
-    phone: "",
+    phone: user.phoneNo,
     email: user.email,
   });
 
@@ -36,8 +41,37 @@ const Stuffs = (props) => {
     });
   }, []);
 
+  const handleLocationInput = (e) => {
+    setLocation((preLocation) => ({
+      ...preLocation,
+      place: e.target.value,
+    }));
+  };
+
+  const searchLocation = (e) => {
+    e.preventDefault();
+    const query = location.place;
+    const URL = `http://api.positionstack.com/v1/forward?access_key=${process.env.REACT_APP_POSITIONSTACK_API}&query=${query}`;
+    fetch(URL)
+      .then((res) => res.json())
+      .then((data) => {
+        setLocation({
+          latitude: data.data[0].latitude,
+          longitude: data.data[0].longitude,
+          place: data.data[0].label,
+          country: data.data[0].country,
+          state: data.data[0].region,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const handleLocation = (e) => {
+    e.preventDefault();
     const query = `${location.latitude},${location.longitude}`;
+    console.log(query);
     const URL = `http://api.positionstack.com/v1/reverse?access_key=${process.env.REACT_APP_POSITIONSTACK_API}&query=${query}`;
     fetch(URL)
       .then((res) => res.json())
@@ -53,8 +87,6 @@ const Stuffs = (props) => {
       .catch((err) => {
         console.log(err);
       });
-
-    handleClick(e);
   };
 
   const handleItem = (e) => {
@@ -92,7 +124,7 @@ const Stuffs = (props) => {
     };
     console.log("Submitted");
     console.log(donationStuffData);
-    props.history.push("/");
+    history.push("/");
   };
 
   return (
@@ -133,31 +165,21 @@ const Stuffs = (props) => {
         <div className={styles.paymentCard} id="paymentCard">
           <div className={`${styles.card} show`} id="dropLocation">
             <h2>Help us with your exact location</h2>
-            <GoogleComponent
-              apiKey={API_KEY_GOOGLE}
-              language={"en"}
-              country={"country:in|country:us"}
-              coordinates={true}
-              currentCoordinates={{
-                lat: 41.7151377,
-                lng: 44.827096,
-              }}
-              placeholder={
-                location && location.place
-                  ? location.place
-                  : "Start typing location"
-              }
-              // locationBoxStyle={{}}
-              // locationListStyle={"custom-style-list"}
-              onChange={(e) => {
-                console.log(e);
-                setLocation({
-                  place: e.place,
-                  latitude: e.coordinates.lat,
-                  longitude: e.coordinates.lng,
-                });
-              }}
-            />
+            <div className={styles.locationInput}>
+              <input
+                type="text"
+                placeholder="Enter your location"
+                value={location.place}
+                onChange={handleLocationInput}
+              />
+              <a
+                className={styles.btn}
+                href="#somevalue"
+                onClick={searchLocation}
+              >
+                Search
+              </a>
+            </div>
             <h3>or</h3>
             <br />
             <a

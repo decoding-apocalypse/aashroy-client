@@ -24,6 +24,7 @@ const Home = (props) => {
   });
   const [markers, setMarkers] = React.useState([]);
   const [selected, setSelected] = React.useState(null);
+  const [ngoSelected, setNgoSelected] = React.useState(null);
   useEffect(() => {
     document.title = props.title;
   }, [props.title]);
@@ -144,10 +145,10 @@ const Home = (props) => {
       <div id="home-map">
         <GoogleMap
           mapContainerStyle={{ width: "100%", height: "100%" }}
-          zoom={8}
+          zoom={5}
           center={{
-            lat: 26.2006,
-            lng: 92.9376,
+            lat: selected?.lat || ngoSelected?.location.lat || 26.2006,
+            lng: selected?.lng || ngoSelected?.location.lng || 92.9376,
           }}
           options={options}
           onLoad={onMapLoad}
@@ -188,6 +189,56 @@ const Home = (props) => {
                 ) : null}
               </React.Fragment>
             ))}
+          <Marker
+            position={{
+              lat: 28.7041,
+              lng: 77.1025,
+            }}
+            onClick={() => {
+              setNgoSelected({
+                id: 2,
+                name: "AASTHA FOUNDATION",
+                email: "sayahnneetadutta@gmail.com",
+                address:
+                  "AASTHA FOUNDATION,CHOW CHAKRA BUILDING,N.N.DUTTA ROAD ,SILCHAR-788001",
+                phoneNo: "+918638573770",
+                type: "Registered Societies",
+                url: "https://www.vikasngo.com/",
+                location: {
+                  lat: 28.7041,
+                  lng: 77.1025,
+                },
+              });
+            }}
+            icon={{
+              url: "/img/locationPin.png",
+              scaledSize: new window.google.maps.Size(40, 40),
+              origin: new window.google.maps.Point(0, 0),
+              anchor: new window.google.maps.Point(20, 20),
+            }}
+          />
+          {ngoSelected && (
+            <InfoWindow
+              position={{
+                lat: ngoSelected?.location.lat,
+                lng: ngoSelected?.location.lng,
+              }}
+              onCloseClick={() => {
+                setNgoSelected(null);
+              }}
+            >
+              <div>
+                {/* <img
+                  src={ngoSelected.imgUrl}
+                  alt="Homeless"
+                  className="markerImg"
+                /> */}
+                <p className="markerDate">{ngoSelected?.email}</p>
+                <p className="markerUser">{ngoSelected?.name}</p>
+                <p className="markerDesc">{ngoSelected?.address}</p>
+              </div>
+            </InfoWindow>
+          )}
         </GoogleMap>
       </div>
       <div id="upload-img">

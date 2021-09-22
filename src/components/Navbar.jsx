@@ -78,7 +78,7 @@ const Navbar = (props) => {
                   />
                 </div>
                 <div className="user-details">
-                  <p>{user.username}</p>
+                  <p style={{ wordBreak: "break-all" }}>{user.username}</p>
                 </div>
               </Link>
             )}

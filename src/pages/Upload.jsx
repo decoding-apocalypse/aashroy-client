@@ -35,10 +35,10 @@ const Upload = (props) => {
     });
     setUploadData((prevData) => ({
       ...prevData,
-      username: user.username,
-      userId: user._id,
+      username: user?.username,
+      userId: user?._id,
     }));
-  }, [user._id, user.username]);
+  }, [user?._id, user?.username]);
 
   const url = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image/upload`;
   const [imageSelected, setImageSelected] = useState(null);

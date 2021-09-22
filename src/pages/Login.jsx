@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { googleLoginCall, loginCall } from "../apiCalls";
@@ -17,6 +17,9 @@ const Login = (props) => {
     email: "",
     password: "",
   });
+
+  const [showPassword, setShowPassword] = useState(false);
+  const passwordInput = useRef();
 
   useEffect(() => {
     document.title = props.title;
@@ -42,6 +45,15 @@ const Login = (props) => {
   const googleFailure = (err) => {
     console.log(err);
     console.log("Failure :(");
+  };
+
+  const handleEye = (e) => {
+    setShowPassword((prev) => !prev);
+    if (!showPassword) {
+      passwordInput.current.type = "text";
+    } else {
+      passwordInput.current.type = "password";
+    }
   };
 
   return (
@@ -82,6 +94,7 @@ const Login = (props) => {
               <input
                 type="password"
                 name="password"
+                ref={passwordInput}
                 value={userData.password}
                 onChange={handleUserInput}
                 placeholder="Your password"
@@ -89,6 +102,12 @@ const Login = (props) => {
                 required
                 minLength="8"
               />
+              <div className={styles.eye} onClick={handleEye}>
+                <img
+                  src={showPassword ? "/img/hideeye.png" : "/img/eye.png"}
+                  alt="eye"
+                />
+              </div>
               <button className={styles.loginBtn}>Login</button>
             </form>
             <Link

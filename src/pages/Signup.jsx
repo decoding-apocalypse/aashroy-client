@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { googleLoginCall, signupCall } from "../apiCalls";
@@ -13,6 +13,11 @@ const Signup = (props) => {
   // new
 
   const { isFetching, error, dispatchAuthState } = useContext(AuthContext);
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfPassword, setShowConfPassword] = useState(false);
+  const passwordInput = useRef();
+  const passwordConfInput = useRef();
 
   const [userData, setUserData] = useState({
     name: "",
@@ -43,6 +48,23 @@ const Signup = (props) => {
   };
   const googleFailure = () => {
     console.log("Failure :(");
+  };
+
+  const handleEye = (e) => {
+    setShowPassword((prev) => !prev);
+    if (!showPassword) {
+      passwordInput.current.type = "text";
+    } else {
+      passwordInput.current.type = "password";
+    }
+  };
+  const handleEye2 = (e) => {
+    setShowConfPassword((prev) => !prev);
+    if (!showConfPassword) {
+      passwordConfInput.current.type = "text";
+    } else {
+      passwordConfInput.current.type = "password";
+    }
   };
 
   return (
@@ -89,6 +111,7 @@ const Signup = (props) => {
               <input
                 type="password"
                 name="password"
+                ref={passwordInput}
                 value={userData.password}
                 onChange={handleUserData}
                 placeholder="Enter password"
@@ -99,6 +122,7 @@ const Signup = (props) => {
               <input
                 type="password"
                 name="passwordConf"
+                ref={passwordConfInput}
                 value={userData.passwordConf}
                 onChange={handleUserData}
                 placeholder="Confirm password"
@@ -106,6 +130,18 @@ const Signup = (props) => {
                 required
                 minLength="8"
               />
+              <div className={styles.eye1} onClick={handleEye}>
+                <img
+                  src={showPassword ? "/img/hideeye.png" : "/img/eye.png"}
+                  alt="eye"
+                />
+              </div>
+              <div className={styles.eye2} onClick={handleEye2}>
+                <img
+                  src={showConfPassword ? "/img/hideeye.png" : "/img/eye.png"}
+                  alt="eye"
+                />
+              </div>
               <button className={styles.loginBtn}>Signup</button>
             </form>
             <p>
