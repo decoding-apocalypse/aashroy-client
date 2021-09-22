@@ -137,3 +137,17 @@ export const donationListCall = (userId, dispatch) => {
       return;
     });
 };
+
+export const deleteAccountCall = (userCredential, dispatch) => {
+  dispatch({ type: "DELETE_USER_START" });
+  // delete
+  axios
+    .delete(`${apiUrl}/users/${userCredential._id}`)
+    .then((res) => {
+      Cookies.remove("user");
+      dispatch({ type: "DELETE_USER_SUCCESS" });
+    })
+    .catch((err) => {
+      dispatch({ type: "DELETE_USER_FAILURE", payload: err });
+    });
+};
