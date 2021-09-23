@@ -96,6 +96,7 @@
 
 #profile .user-img img {
   height: 100%;
+  border-radius: 50%;
 }
 
 #profile .user-details {

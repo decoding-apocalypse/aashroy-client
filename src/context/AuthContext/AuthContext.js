@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   user: null,
   isFetching: false,
   error: false,
+  dispatchAuthState: () => {},
 };
 
 export const AuthContext = React.createContext(INITIAL_STATE);

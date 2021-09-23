@@ -1,3 +1,58 @@
+.Profile a:hover,
+.Profile a:active {
+  color: rgb(101, 101, 250);
+}
+
+.backdrop {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background-color: rgb(143, 143, 143);
+  opacity: 0.6;
+  z-index: 10;
+  display: none;
+}
+
+.model {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 60vw;
+  height: 25vh;
+  display: none;
+  z-index: 100;
+  border-radius: 12px;
+}
+
+.modelContent {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.model p {
+  font-size: 1.4rem;
+}
+
+.modelActions {
+  border-top: 1px solid rgb(185, 185, 185);
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.modelActions button {
+  margin: 1rem 1rem 0 0;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
 .page {
   margin: 0px 20px;
 }
@@ -112,6 +167,7 @@
 }
 
 .buttons {
+  color: white;
   width: 105px;
   margin: 5px;
   text-align: center;
@@ -137,14 +193,25 @@
 
 .editBtn {
   text-align: center;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 }
 
 .editBtn a {
-  padding: 1.2rem 0.8rem;
+  padding: 0.5rem 1rem;
   background-color: var(--theme1-100);
   border-radius: 12px;
   color: white;
+}
+
+.deleteBtn {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.deleteBtn button {
+  background: rgb(246, 84, 84);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
 }
 
 .editBtn a:hover {
@@ -204,7 +271,23 @@
   display: none;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
+  .Profile {
+    padding: 0;
+  }
+  .model {
+    width: 90vw;
+  }
+
+  .modelContent p {
+    font-size: 1.2rem;
+  }
+
+  .modelActions button {
+    font-size: 0.7rem;
+    margin: 1rem 0.2rem;
+  }
+
   .information {
     font-size: 1rem;
     margin-bottom: 3rem;

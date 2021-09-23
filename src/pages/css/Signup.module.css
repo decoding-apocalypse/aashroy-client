@@ -38,6 +38,7 @@
 
 .eye1,
 .eye2 {
+  cursor: pointer;
   height: 26px;
   width: 26px;
   position: absolute;

@@ -30,7 +30,6 @@ const Payment = (props) => {
   const [paymentInfo, setPaymentInfo] = useState(DEFAULT_PAYMENT_INFO);
 
   const [isSuccess, setIsSuccess] = useState(false);
-  console.log(isSuccess);
 
   const [error, setError] = useState("");
 
@@ -60,14 +59,14 @@ const Payment = (props) => {
           if (res.data.success) {
             setError("");
             setIsSuccess(true);
+            setPaymentInfo(DEFAULT_PAYMENT_INFO);
           } else {
-            setError(res.message);
+            setError(res.data.message);
           }
         })
         .catch((err) => {
           setError(JSON.stringify(err));
         });
-      setPaymentInfo(DEFAULT_PAYMENT_INFO);
     }
   };
 

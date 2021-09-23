@@ -73,6 +73,24 @@ const AuthReducer = (state, action) => {
         isFetching: false,
         error: action.payload,
       };
+    case "DELETE_USER_START":
+      return {
+        user: null,
+        isFetching: true,
+        error: null,
+      };
+    case "DELETE_USER_SUCCESS":
+      return {
+        user: null,
+        isFetching: false,
+        error: null,
+      };
+    case "DELETE_USER_FAILURE":
+      return {
+        user: action.payload,
+        isFetching: false,
+        error: "Couldn't delete, please try later",
+      };
     default:
       return state;
   }

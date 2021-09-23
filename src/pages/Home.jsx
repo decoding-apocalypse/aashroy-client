@@ -25,6 +25,7 @@ const Home = (props) => {
   const [markers, setMarkers] = React.useState([]);
   const [selected, setSelected] = React.useState(null);
   const [ngoSelected, setNgoSelected] = React.useState(null);
+  const [ngoList, setNgoList] = React.useState(null);
   useEffect(() => {
     document.title = props.title;
   }, [props.title]);
@@ -60,6 +61,15 @@ const Home = (props) => {
       });
   }, []);
   // console.log(markers);
+
+  useEffect(() => {
+    fetch("/db/ngo.json")
+      .then((res) => res.json())
+      .then((data) => setNgoList(data.NGO))
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   if (loadError) return <div>Error while loading maps</div>;
   if (!isLoaded) return <div>Loading Maps</div>;
@@ -173,7 +183,7 @@ const Home = (props) => {
                       setSelected(null);
                     }}
                   >
-                    <div>
+                    <div style={{ maxWidth: "300px" }}>
                       <img
                         src={selected.imgUrl}
                         alt="Homeless"
@@ -182,63 +192,56 @@ const Home = (props) => {
                       <p className="markerDate">
                         {new Date(selected.time).toLocaleDateString()}
                       </p>
-                      <p className="markerUser">{selected.username}</p>
+                      <p className="markerUser">@{selected.username}</p>
                       <p className="markerDesc">{selected.descrip}</p>
                     </div>
                   </InfoWindow>
                 ) : null}
               </React.Fragment>
             ))}
-          <Marker
-            position={{
-              lat: 28.7041,
-              lng: 77.1025,
-            }}
-            onClick={() => {
-              setNgoSelected({
-                id: 2,
-                name: "AASTHA FOUNDATION",
-                email: "sayahnneetadutta@gmail.com",
-                address:
-                  "AASTHA FOUNDATION,CHOW CHAKRA BUILDING,N.N.DUTTA ROAD ,SILCHAR-788001",
-                phoneNo: "+918638573770",
-                type: "Registered Societies",
-                url: "https://www.vikasngo.com/",
-                location: {
-                  lat: 28.7041,
-                  lng: 77.1025,
-                },
-              });
-            }}
-            icon={{
-              url: "/img/locationPin.png",
-              scaledSize: new window.google.maps.Size(40, 40),
-              origin: new window.google.maps.Point(0, 0),
-              anchor: new window.google.maps.Point(20, 20),
-            }}
-          />
-          {ngoSelected && (
-            <InfoWindow
-              position={{
-                lat: ngoSelected?.location.lat,
-                lng: ngoSelected?.location.lng,
-              }}
-              onCloseClick={() => {
-                setNgoSelected(null);
-              }}
-            >
-              <div>
-                {/* <img
-                  src={ngoSelected.imgUrl}
-                  alt="Homeless"
-                  className="markerImg"
-                /> */}
-                <p className="markerDate">{ngoSelected?.email}</p>
-                <p className="markerUser">{ngoSelected?.name}</p>
-                <p className="markerDesc">{ngoSelected?.address}</p>
-              </div>
-            </InfoWindow>
-          )}
+          {ngoList &&
+            ngoList.map((n) => (
+              <React.Fragment key={n.id}>
+                <Marker
+                  position={{
+                    lat: n.location.lat,
+                    lng: n.location.lng,
+                  }}
+                  onClick={() => {
+                    setNgoSelected(n);
+                  }}
+                  icon={{
+                    url: "/img/locationPin.png",
+                    scaledSize: new window.google.maps.Size(32, 32),
+                    origin: new window.google.maps.Point(0, 0),
+                    anchor: new window.google.maps.Point(16, 16),
+                  }}
+                />
+                {ngoSelected && (
+                  <InfoWindow
+                    position={{
+                      lat: ngoSelected?.location.lat,
+                      lng: ngoSelected?.location.lng,
+                    }}
+                    onCloseClick={() => {
+                      setNgoSelected(null);
+                    }}
+                  >
+                    <div style={{ maxWidth: "200px" }}>
+                      <img
+                        src={ngoSelected.img}
+                        alt={ngoSelected.name}
+                        className="markerImg"
+                      />
+                      <p className="markerDate">{ngoSelected?.email}</p>
+                      <p>{ngoSelected?.phoneNo}</p>
+                      <p className="markerUser">{ngoSelected?.name}</p>
+                      <p className="markerDesc">{ngoSelected?.address}</p>
+                    </div>
+                  </InfoWindow>
+                )}
+              </React.Fragment>
+            ))}
         </GoogleMap>
       </div>
       <div id="upload-img">

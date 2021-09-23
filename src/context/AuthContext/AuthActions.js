@@ -52,3 +52,16 @@ export const GoogleLoginFailure = (error) => ({
   type: "GOOGLE_LOGIN_FAILURE",
   payload: error,
 });
+
+export const DeleteUserStart = (userCreds) => ({
+  type: "DELETE_USER_START",
+});
+
+export const DeleteUserSuccess = () => ({
+  type: "DELETE_USER_SUCCESS",
+});
+
+export const DeleteUserFailure = (user) => ({
+  type: "DELETE_USER_FAILURE",
+  payload: user,
+});
