@@ -8,13 +8,12 @@ import "./css/EditProfile.css";
 const EditProfile = (props) => {
   const [imageSelected, setImageSelected] = useState(null);
   const [previewSource, setPreviewSource] = useState(null);
-  const [profileImgUrl, setProfileImgUrl] = useState(null);
   const { user } = useContext(AuthContext);
   const [userDetails, setUserDetails] = useState({
     name: user.name,
     address: user.address,
-    phoneNo: user.phoneNo,
-    dateOfBirth: user.dateOfBirth,
+    phoneNo: user.phoneNo || "",
+    dateOfBirth: user.dateOfBirth || new Date(2000, 0, 2),
     bio: user.bio,
     password: user.password,
     profileImg: user.profileImg,
@@ -31,24 +30,10 @@ const EditProfile = (props) => {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(userDetails);
-    axios
-      .put(`${process.env.REACT_APP_API_URL}/users/${user._id}`, userDetails)
-      .then((res) => {
-        console.log(res.data);
-        Cookies.set("user", JSON.stringify(res.data));
-        window.location.href = "/profile";
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
   const url = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image/upload`;
 
-  const uploadSelectedHandler = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (imageSelected) {
       const formData = new FormData();
       formData.append("file", imageSelected);
@@ -57,20 +42,72 @@ const EditProfile = (props) => {
         method: "post",
         body: formData,
       })
-        .then((res) => res.join())
+        .then((res) => res.json())
         .then((data) => {
-          setProfileImgUrl(data.url);
+          console.log(userDetails);
+          return axios.put(
+            `${process.env.REACT_APP_API_URL}/users/${user._id}`,
+            { ...userDetails, profileImg: data.url }
+          );
+        })
+        .then((res) => {
+          console.log(res.data);
+          Cookies.set("user", JSON.stringify(res.data));
+          window.location.href = "/profile";
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      axios
+        .put(`${process.env.REACT_APP_API_URL}/users/${user._id}`, userDetails)
+        .then((res) => {
+          console.log(res.data);
+          Cookies.set("user", JSON.stringify(res.data));
+          window.location.href = "/profile";
+        })
+        .catch((err) => {
+          console.log(err);
         });
     }
   };
 
-  const previewFile = () => {};
+  // const uploadSelectedHandler = () => {
+  //   if (imageSelected) {
+  //     const formData = new FormData();
+  //     formData.append("file", imageSelected);
+  //     formData.append("upload_preset", process.env.REACT_APP_UPLOAD_PRESET);
+  //     fetch(url, {
+  //       method: "post",
+  //       body: formData,
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         setProfileImgUrl(data.url);
+  //       });
+  //   }
+  // };
+
+  const previewFile = (file) => {
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        setPreviewSource(reader.result);
+      };
+    } else {
+      setPreviewSource(null);
+    }
+  };
 
   return (
     <main id="EditProfile">
       <h1 className="edit-heading">Edit Profile</h1>
       <div className="edit-content">
-        <img src={user.profileImg || "/img/user.png"} alt="profile Img" />
+        <img
+          src={previewSource || user.profileImg || "/img/user.png"}
+          alt="profile Img"
+        />
       </div>
       <div className="user-img">
         <input

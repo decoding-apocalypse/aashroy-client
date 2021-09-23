@@ -15,6 +15,7 @@
   padding: 0;
   margin: 0;
   border-radius: 50%;
+  object-fit: cover;
 }
 .user-img {
   position: relative;
@@ -60,7 +61,6 @@
   margin-top: 30px;
 }
 
-
 .submit:hover {
   background-color: var(--theme1-100);
   color: white;
@@ -86,7 +86,6 @@
 #choosen-file {
   text-decoration: none;
 }
-
 
 @media (min-width: 300px) and (max-width: 1080px) {
   .user-img {
