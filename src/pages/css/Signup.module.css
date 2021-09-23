@@ -100,7 +100,7 @@
 }
 
 .icons img {
-  width: 42px;
+  width: 35px;
   margin: 0 0.5rem;
 }
 
@@ -126,6 +126,9 @@
   padding: 1rem 2rem;
   border-radius: 8px;
   background-color: var(--theme4-100);
+}
+
+.externalLinks{
 }
 
 @media only screen and (max-width: 1024px) {

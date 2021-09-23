@@ -17,6 +17,8 @@
   margin-top: 1rem;
   position: relative;
   height: 50rem;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.384);
 }
 
 #home-map img {
@@ -156,4 +158,24 @@
   #upload-img .donate-button {
     padding: 0 25px;
   }
+
+  #home-map {
+  margin-left: 0.7rem;
+  margin-right: 0.7rem;
+  }
+
+
+}
+
+
+
+@media screen and (max-width: 361px) {
+
+  #home-info h2{
+    /* font-size:28px; */
+    padding: 3px;
+    margin: 4px;
+
+  }
+
 }

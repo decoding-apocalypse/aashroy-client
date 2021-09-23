@@ -251,6 +251,27 @@ const AboutUs = (props) => {
           </div>
         </div>
       </div>
+      <br></br>
+      <div className="apibox">
+        <div className="post">
+          <h3>Heading</h3>
+          <div className="box">
+            <button className="pgbtn">POST</button>
+            <div className="linkbox">
+              <a href="#">https://www.ghochu.com/api/post/loda</a>
+            </div>
+          </div>
+        </div>
+        <div className="get">
+          <h3>Heading</h3>
+          <div className="box">
+            <button className="pgbtn">GET</button>
+            <div className="linkbox">
+              <a href="#">https://www.ghochu.com/api/get/loda</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   );
 };
