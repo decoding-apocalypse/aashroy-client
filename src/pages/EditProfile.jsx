@@ -1,12 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useContext, useState } from "react";
-import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext/AuthContext";
 import Cookies from "js-cookie";
 
 import "./css/EditProfile.css";
 
+
 const EditProfile = (props) => {
+  const [imageSelected, setImageSelected] = useState(null);
+  const [previewSource, setPreviewSource] = useState(null);
   const { user } = useContext(AuthContext);
   const [userDetails, setUserDetails] = useState({
     name: user.name,
@@ -17,11 +19,11 @@ const EditProfile = (props) => {
     password: user.password,
     profileImg: user.profileImg,
   });
-
+  
   useEffect(() => {
     document.title = props.title;
   }, [props.title]);
-
+  
   const handleChange = (e) => {
     setUserDetails((prev) => ({
       ...prev,
@@ -44,6 +46,17 @@ const EditProfile = (props) => {
       });
   };
 
+  const uploadSelectedHandler = () => {
+    if(imageSelected){
+      const formData = new FormData();
+      formData.append("file", imageSelected);
+    }
+  }
+
+  const previewFile = () => {
+
+  }
+
   return (
     <main id="EditProfile">
       <h1 className="edit-heading">Edit Profile</h1>
@@ -51,7 +64,22 @@ const EditProfile = (props) => {
         <img src={user.profileImg || "/img/user.png"} alt="profile Img" />
       </div>
       <div className="user-img">
-        <Link to="/">Change Profile Picture</Link>
+        <input
+          id="profile-img-inp"
+          type="file"
+          accept="image/*"
+          onChange={(event) => {
+            setImageSelected(event.target.files[0]);
+            previewFile(event.target.files[0]);
+          }}
+        />
+        <label htmlFor="profile-img-inp" id="profile-img-inp-label">
+          <span id="label-text">Choose a file:</span>
+          {" "}
+          <strong>
+            {imageSelected == null ? "None" : imageSelected?.name}
+          </strong>
+        </label>
       </div>
       <div className="edit-form">
         <h3 className="form-heading">Edit your Details</h3>
