@@ -1,0 +1,134 @@
+{
+  "NGO": [
+    {
+      "id": 1,
+      "name": "Aasha (A Hope) Foundation And Social Welfare Society",
+      "email": "aasha2017@rediffmail.com",
+      "address": "c/o Benzir Arfan, House no. 98, 2nd floor, Panbazar, Danish Road, Lakhtokia, Districtkamrup (M), Guwahati. Assam. Pincode781001. India",
+      "type": "Registered Societies",
+      "phoneNo": "7576806128",
+      "location": {
+        "lat": 26.273314540252397,
+        "lng": 91.73486960857788
+      },
+      "img": "https://res.cloudinary.com/dn3zk0qf0/image/upload/v1632301270/ngos/ashaFoundation_mfozzr.jpg"
+    },
+    {
+      "id": 2,
+      "name": "AASTHA FOUNDATION",
+      "email": "arnab.chakraborty85@yahoo.in",
+      "address": "AASTHA FOUNDATION,CHOW CHAKRA BUILDING,N.N.DUTTA ROAD ,SILCHAR-788001",
+      "phoneNo": "+919957577496",
+      "type": "Registered Societies",
+      "location": {
+        "lat": 25.002577931916424,
+        "lng": 92.8127626906886
+      },
+      "img": "https://res.cloudinary.com/dn3zk0qf0/image/upload/v1632302410/ngos/aastha_foundation_glx1ca.jpg"
+    },
+    {
+      "id": 3,
+      "name": "A RAY OF HOPE SOCIETY",
+      "email": "mithunsarkar_mcp@yahoo.com",
+      "address": "C/O:Madhu Sudhan Sarkar,Haflong Bazar PO/PS:HAFLONG",
+      "type": "Registered Societies",
+      "phoneNo": "+919435077743",
+      "location": {
+        "lat": 23.888784290744137,
+        "lng": 72.65487212528268
+      },
+      "img": "https://res.cloudinary.com/dn3zk0qf0/image/upload/v1632302430/ngos/A_RAY_OF_HOPE_y44h8e.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Aashaa Bora Foundation",
+      "email": "aashaabora@gmail.com",
+      "address": "345, NikitaComplex, 1st floor, Khanapara, Guwahati-781022",
+      "type": "Registered Societies",
+      "phoneNo": "9854066369",
+      "location": {
+        "lat": 26.22917904243914,
+        "lng": 91.75273343593229
+      },
+      "img": "https://res.cloudinary.com/dn3zk0qf0/image/upload/v1632302488/ngos/AASHA_BORA_FOUNDATION_j8jvfz.jpg"
+    },
+    {
+      "id": 5,
+      "name": "AASHRAYA",
+      "email": "aadhaarshikshatrust@gmail.com",
+      "address": "C/o MINI BORO, HOUSE NO 21, ULUBARI, KACHARI BASTI, GUWAHATI 781007",
+      "type": "Trust",
+      "phoneNo": "9540849308",
+      "location": {
+        "lat": 26.33285445235144,
+        "lng": 91.74580034824068
+      },
+      "img": "https://res.cloudinary.com/dn3zk0qf0/image/upload/v1632302522/ngos/AASHARAYA_kzfvst.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Aaditri Foundation",
+      "email": "aaditrifoundationghy@gmail.com",
+      "address": "H.No-01, August Kanti Path, Beltola, P.O. Khanapara, P.S. Dispur, Guwahati, District- Kamrup Metro, Assam,",
+      "type": "Trust",
+      "phoneNo": "9127393633",
+      "location": {
+        "lat": 26.12790971309403,
+        "lng": 91.80543269621965
+      },
+      "img": "https://res.cloudinary.com/dn3zk0qf0/image/upload/v1632302577/ngos/Aaditri_Foundation_lbzwcu.jpg"
+    },
+    {
+      "id": 7,
+      "name": "AADYA SRISHTI KALA MANDIR CULTURAL SOCIETY",
+      "email": "askmcstsk@gmail.com",
+      "address": "S. DAHUTIA ROAD , BORPATHAR , TINSUKIA , TINSUKIA",
+      "type": "Registered Societies",
+      "phoneNo": "9401104848",
+      "location": {
+        "lat": 27.498840212942294,
+        "lng": 95.34433225005152
+      },
+      "img": "https://res.cloudinary.com/dn3zk0qf0/image/upload/v1632302550/ngos/AADYA_SRISHTI_KALA_MANDIR_CULTURAL_SOCIETY_syrkr7.jpg"
+    },
+    {
+      "id": 8,
+      "name": "AAGAN",
+      "email": "aaganngo@gmail.com",
+      "address": "Hathimata Road, Ward No: 8, Opposite Surat Press, Kokrajhar, Assam.",
+      "type": "Registered Societies",
+      "phoneNo": "8876090965",
+      "location": {
+        "lat": 26.573645645469057,
+        "lng": 90.23823581574428
+      },
+      "img": "https://res.cloudinary.com/dn3zk0qf0/image/upload/v1632302606/ngos/AAGAN_khalrv.jpg"
+    },
+    {
+      "id": 9,
+      "name": "AAINA",
+      "email": "aainaassam@gmail.com",
+      "address": "H.No.26, Pragati path, Chandan nagar, Ghoramara, P.O.Beltola,Guwahati-28",
+      "type": "Registered Societies",
+      "phoneNo": "9707022457",
+      "location": {
+        "lat": 26.319499870523153,
+        "lng": 91.77092161707388
+      },
+      "img": "https://res.cloudinary.com/dn3zk0qf0/image/upload/v1632302347/ngos/AAINA_lg1vxy.jpg"
+    },
+    {
+      "id": 10,
+      "name": "BRIGHT FUTURE FOR PEOPLES AND RURAL AREA DEVELOPMENT OF ASSAM",
+      "email": "bfpradassam@gmail.com",
+      "address": "Old UBI Bank Building, 2nd floor, Bhuragaon Natun Bazar, P.O. Bhuragaon, P.S. Bhuragaon, MARIGAON, 782121",
+      "phoneNo": "+917002599468",
+      "type": "Registered Societies",
+      "location": {
+        "lat": 26.411598218376575,
+        "lng": 92.23445508555513
+      },
+      "img": "https://res.cloudinary.com/dn3zk0qf0/image/upload/v1632302452/ngos/BRIGHT_FUTURE_FOR_PEOPLES_AND_RURAL_AREA_DEVELOPMENT_OF_ASSAM_nbh6dz.jpg"
+    }
+  ]
+}
