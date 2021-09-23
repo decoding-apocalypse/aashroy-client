@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
@@ -26,7 +27,7 @@ const Stuffs = (props) => {
 
   const [donorDetails, setDonorDetails] = useState({
     name: user.name,
-    phone: user.phoneNo,
+    phone: user.phoneNo || "",
     email: user.email,
   });
 
@@ -122,8 +123,13 @@ const Stuffs = (props) => {
       date,
       donorDetails,
     };
-    console.log("Submitted");
-    console.log(donationStuffData);
+    axios
+      .post(
+        `${process.env.REACT_APP_API_URL}/donation/stuffs`,
+        donationStuffData
+      )
+      .then((res) => console.log("Order placed"))
+      .catch((err) => console.log(err));
     history.push("/");
   };
 

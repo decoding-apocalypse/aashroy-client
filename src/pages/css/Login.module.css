@@ -186,4 +186,8 @@
   .create {
     font-size: 1rem;
   }
+
+  .eye {
+    right: 2%;
+  }
 }
