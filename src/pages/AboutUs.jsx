@@ -67,7 +67,7 @@ const AboutUs = (props) => {
         </div>
       </div>
       <div className="AboutUs-box">
-        <h1>About Aakanksha</h1>
+        <h1>About Aashroy</h1>
         <div className="about-content">
           <p>
             We exist to defend the right to a safe home and to provide care and

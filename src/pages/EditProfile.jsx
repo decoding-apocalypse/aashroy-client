@@ -5,10 +5,10 @@ import Cookies from "js-cookie";
 
 import "./css/EditProfile.css";
 
-
 const EditProfile = (props) => {
   const [imageSelected, setImageSelected] = useState(null);
   const [previewSource, setPreviewSource] = useState(null);
+  const [profileImgUrl, setProfileImgUrl] = useState(null);
   const { user } = useContext(AuthContext);
   const [userDetails, setUserDetails] = useState({
     name: user.name,
@@ -19,11 +19,11 @@ const EditProfile = (props) => {
     password: user.password,
     profileImg: user.profileImg,
   });
-  
+
   useEffect(() => {
     document.title = props.title;
   }, [props.title]);
-  
+
   const handleChange = (e) => {
     setUserDetails((prev) => ({
       ...prev,
@@ -46,16 +46,25 @@ const EditProfile = (props) => {
       });
   };
 
+  const url = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image/upload`;
+
   const uploadSelectedHandler = () => {
-    if(imageSelected){
+    if (imageSelected) {
       const formData = new FormData();
       formData.append("file", imageSelected);
+      formData.append("upload_preset", process.env.REACT_APP_UPLOAD_PRESET);
+      fetch(url, {
+        method: "post",
+        body: formData,
+      })
+        .then((res) => res.join())
+        .then((data) => {
+          setProfileImgUrl(data.url);
+        });
     }
-  }
+  };
 
-  const previewFile = () => {
-
-  }
+  const previewFile = () => {};
 
   return (
     <main id="EditProfile">
@@ -74,8 +83,7 @@ const EditProfile = (props) => {
           }}
         />
         <label htmlFor="profile-img-inp" id="profile-img-inp-label">
-          <span id="label-text">Choose a file:</span>
-          {" "}
+          <span id="label-text">Choose a file:</span>{" "}
           <strong>
             {imageSelected == null ? "None" : imageSelected?.name}
           </strong>
