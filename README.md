@@ -1,2 +1,2 @@
-# Client directory of Aakanksha Project
+# Client directory of Aashroy Project
 hello coders
