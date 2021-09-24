@@ -180,6 +180,7 @@ const Stuffs = (props) => {
                 Search
               </a>
             </div>
+            <br></br>
             <h3>or</h3>
             <br />
             <a
