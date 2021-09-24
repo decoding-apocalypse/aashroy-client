@@ -83,9 +83,9 @@ const Report = (props) => {
             You can also share your valuable feedback to us which can help us to
             serve the community better.
           </p>
-          <button type="button" className="btn btn-outline-info">
-            Complaint Now
-          </button>
+          <p><strong>
+          Please find the chatbot feature on your right to report your complaints
+          </strong></p>
         </div>
         <div className="report-bg">
           <img src="/img/report-bg-1.png" alt="nothing" />
