@@ -149,7 +149,7 @@ const Signup = (props) => {
             </p>
             <div className={styles.externalLinks}>
               <span className={styles.text}>
-                or signup using your Google Account
+                or signup using 
               </span>
               <span className={styles.icons}>
                 <GoogleLogin

@@ -122,7 +122,7 @@ const Login = (props) => {
               </Link>
             </div>
             <div className={styles.externalLinks}>
-              <span className={styles.text}>or login using Google Account</span>
+              <span className={styles.text}>or login using</span>
               <span className={styles.icons}>
                 <GoogleLogin
                   clientId={process.env.REACT_APP_GOOGLE_OAUTH_CLIENT_ID}

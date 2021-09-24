@@ -143,6 +143,69 @@ tr:nth-child(even) {
   color: white;
   text-align: center;
 }
+
+
+.get .pgbtn{
+  width: 80px;
+  color: #fff;
+  background-color: rgb(28, 212, 28);
+  border-radius: 3.5px;
+  font-weight: bold;
+}
+
+.post .pgbtn{
+  width: 80px;
+  color: #fff;
+  background-color: rgb(238, 83, 83);
+  font-weight: bold;
+  border-radius: 3.5px;
+}
+
+.post > h3{
+  padding-left: 10px;
+}
+
+.get > h3{
+  padding-left: 10px;
+}
+
+.box{
+  padding: 15px;
+  display: flex;
+  margin: 20px 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.linkbox{
+  margin-left: 20px;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  width: 80%;
+  overflow: hidden;
+  padding-left: 30px;
+}
+
+
+@media (max-width: 625px) {
+
+.linkbox{
+  padding-left: 5px;
+}
+
+}
+
+@media (max-width: 472px) {
+
+.post{
+  margin: 3px;;
+}
+
+}
+
+
+
 @media (min-width: 360px) {
   .about-partners {
     background-color: #bfa2db;
