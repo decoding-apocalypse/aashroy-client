@@ -1,15 +1,71 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+
 import "./css/Report.css";
 import CustomChatbot from "../components/Chatbot/CustomChatbot";
+import axios from "axios";
 
 const Report = (props) => {
   const [reportData, setReportData] = useState(null);
+
+  const [feedbackData, setFeedbackData] = useState({
+    name: "",
+    email: "",
+    feedback: "",
+  });
+
+  const history = useHistory();
 
   const handleReportData = (data) => {
     setReportData((prevData) => ({ ...prevData, ...data }));
   };
 
-  console.log(reportData);
+  useEffect(() => {
+    if (reportData?.location) {
+      const query = reportData.location;
+      const URL = `http://api.positionstack.com/v1/forward?access_key=${process.env.REACT_APP_POSITIONSTACK_API}&query=${query}`;
+      fetch(URL)
+        .then((res) => res.json())
+        .then((data) => ({
+          latitude: data.data[0].latitude,
+          longitude: data.data[0].longitude,
+          place: data.data[0].label,
+          country: data.data[0].country,
+          state: data.data[0].region,
+        }))
+        .then((data) => {
+          axios.post(`${process.env.REACT_APP_API_URL}/feedback/report`, {
+            location: data,
+            complaint: reportData.report,
+          });
+        })
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [reportData]);
+
+  const handleFeedbackData = (e) => {
+    setFeedbackData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmitFeedback = () => {
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/feedback`, {
+        name: feedbackData.name,
+        email: feedbackData.email,
+      })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+
+    history.push("/");
+  };
 
   return (
     <main className="report">
@@ -42,7 +98,9 @@ const Report = (props) => {
           <input
             type="text"
             className="fname"
-            name="firstname"
+            name="name"
+            value={feedbackData.name}
+            onChange={handleFeedbackData}
             placeholder="Name"
             required
           />
@@ -51,6 +109,8 @@ const Report = (props) => {
             type="text"
             className="fname"
             name="email"
+            value={feedbackData.email}
+            onChange={handleFeedbackData}
             placeholder="E-Mail"
             required
           />
@@ -58,11 +118,18 @@ const Report = (props) => {
           <input
             type="text"
             className="fname"
-            name="lastname"
+            name="feedback"
+            value={feedbackData.feedback}
+            onChange={handleFeedbackData}
             placeholder="Please give your valuable feedback"
           />
 
-          <input className="submit" type="submit" value="Submit" />
+          <input
+            className="submit"
+            type="submit"
+            value="Submit"
+            onClick={handleSubmitFeedback}
+          />
         </form>
       </div>
       <CustomChatbot updateData={handleReportData} />

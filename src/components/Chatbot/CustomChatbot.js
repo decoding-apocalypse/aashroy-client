@@ -29,7 +29,8 @@ function CustomChatbot(props) {
     bottom: "100px",
     right: "32px",
     padding: "3rem 1.5rem",
-    background: "#f7f72d",
+    background: "#ab96ff",
+    color: "white",
     zIndex: "100",
     fontSize: "1.2rem",
     borderRadius: "12px",
@@ -45,8 +46,7 @@ function CustomChatbot(props) {
     },
     {
       id: "Asking options to report",
-      message:
-        "Hi, Please click on what you want to report today!",
+      message: "Hi, Please click on what you want to report today!",
       trigger: "Displaying options to report",
     },
     {

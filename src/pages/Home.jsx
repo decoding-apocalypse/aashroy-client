@@ -155,7 +155,7 @@ const Home = (props) => {
       <div id="home-map">
         <GoogleMap
           mapContainerStyle={{ width: "100%", height: "100%" }}
-          zoom={5}
+          zoom={8}
           center={{
             lat: selected?.lat || ngoSelected?.location.lat || 26.2006,
             lng: selected?.lng || ngoSelected?.location.lng || 92.9376,
