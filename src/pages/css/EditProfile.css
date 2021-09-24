@@ -66,6 +66,28 @@
   color: white;
 }
 
+#profile-img-inp {
+  display: none;
+}
+
+#profile-img-inp-label {
+  margin-top: 10px;
+}
+
+#profile-img-inp-label #label-text {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#profile-img-inp-label:hover {
+  color: #12a4d9;
+}
+
+#choosen-file {
+  text-decoration: none;
+}
+
+
 @media (min-width: 300px) and (max-width: 1080px) {
   .user-img {
     position: relative;

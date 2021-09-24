@@ -1,12 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useContext, useState } from "react";
-import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext/AuthContext";
 import Cookies from "js-cookie";
 
 import "./css/EditProfile.css";
 
 const EditProfile = (props) => {
+  const [imageSelected, setImageSelected] = useState(null);
+  const [previewSource, setPreviewSource] = useState(null);
+  const [profileImgUrl, setProfileImgUrl] = useState(null);
   const { user } = useContext(AuthContext);
   const [userDetails, setUserDetails] = useState({
     name: user.name,
@@ -44,6 +46,26 @@ const EditProfile = (props) => {
       });
   };
 
+  const url = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image/upload`;
+
+  const uploadSelectedHandler = () => {
+    if (imageSelected) {
+      const formData = new FormData();
+      formData.append("file", imageSelected);
+      formData.append("upload_preset", process.env.REACT_APP_UPLOAD_PRESET);
+      fetch(url, {
+        method: "post",
+        body: formData,
+      })
+        .then((res) => res.join())
+        .then((data) => {
+          setProfileImgUrl(data.url);
+        });
+    }
+  };
+
+  const previewFile = () => {};
+
   return (
     <main id="EditProfile">
       <h1 className="edit-heading">Edit Profile</h1>
@@ -51,7 +73,21 @@ const EditProfile = (props) => {
         <img src={user.profileImg || "/img/user.png"} alt="profile Img" />
       </div>
       <div className="user-img">
-        <Link to="/">Change Profile Picture</Link>
+        <input
+          id="profile-img-inp"
+          type="file"
+          accept="image/*"
+          onChange={(event) => {
+            setImageSelected(event.target.files[0]);
+            previewFile(event.target.files[0]);
+          }}
+        />
+        <label htmlFor="profile-img-inp" id="profile-img-inp-label">
+          <span id="label-text">Choose a file:</span>{" "}
+          <strong>
+            {imageSelected == null ? "None" : imageSelected?.name}
+          </strong>
+        </label>
       </div>
       <div className="edit-form">
         <h3 className="form-heading">Edit your Details</h3>

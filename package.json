@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "1.0.0",
-  "description": "The client directory for Aakanksha project",
+  "description": "The client directory for Aashroy project",
   "dependencies": {
     "@react-google-maps/api": "^2.2.0",
     "@testing-library/jest-dom": "^5.14.1",

@@ -51,87 +51,87 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path="/">
-            <Home title="Home | Aakanksha" />
+            <Home title="Home | Aashroy" />
           </Route>
 
           <Route exact path="/developers">
-            <Developer title="Developers | Aakanksha" />
+            <Developer title="Developers | Aashroy" />
           </Route>
 
           <Route exact path="/donation">
-            <Donation title="Donation | Aakanksha" />
+            <Donation title="Donation | Aashroy" />
           </Route>
 
           <Route exact path="/donation/money">
             {user ? (
-              <Money title="Donate Money | Aakanksha" />
+              <Money title="Donate Money | Aashroy" />
             ) : (
-              <Signup title="Signup | Aakanksha" />
+              <Signup title="Signup | Aashroy" />
             )}
           </Route>
 
           <Route exact path="/donation/money/payment">
             {user ? (
-              <Payment title="Payment | Aakanksha" />
+              <Payment title="Payment | Aashroy" />
             ) : (
-              <Signup title="Signup | Aakanksha" />
+              <Signup title="Signup | Aashroy" />
             )}
           </Route>
 
           <Route exact path="/donation/stuffs">
             {user ? (
-              <Stuffs title="Donate Stuffs | Aakanksha" />
+              <Stuffs title="Donate Stuffs | Aashroy" />
             ) : (
-              <Signup title="Signup | Aakanksha" />
+              <Signup title="Signup | Aashroy" />
             )}
           </Route>
 
           <Route exact path="/public-awareness">
-            <Publicaware title="Public Awareness | Aakanksha" />
+            <Publicaware title="Public Awareness | Aashroy" />
           </Route>
 
           <Route exact path="/about">
-            <AboutUs title="AboutUs | Aakanksha" />
+            <AboutUs title="AboutUs | Aashroy" />
           </Route>
 
           <Route exact path="/report">
-            <Report title="Report | Aakanksha" />
+            <Report title="Report | Aashroy" />
           </Route>
 
           <Route exact path="/upload">
-            <Upload title="Upload | Aakanksha" />
+            <Upload title="Upload | Aashroy" />
           </Route>
 
           <Route exact path="/login">
-            {user ? <Redirect to="/" /> : <Login title="Login | Aakanksha" />}
+            {user ? <Redirect to="/" /> : <Login title="Login | Aashroy" />}
           </Route>
 
           <Route exact path="/signup">
-            {user ? <Redirect to="/" /> : <Signup title="Signup | Aakanksha" />}
+            {user ? <Redirect to="/" /> : <Signup title="Signup | Aashroy" />}
           </Route>
 
           <Route exact path="/logout">
             {user ? (
               <Redirect to="/" />
             ) : (
-              <Logout title="Logging out | Aakanksha" />
+              <Logout title="Logging out | Aashroy" />
             )}
           </Route>
 
           <Route exact path="/profile">
-            <Profile title="Profile | Aakanksha" />
+            <Profile title="Profile | Aashroy" />
           </Route>
 
           <Route exact path="/forgotpassword">
-            <ForgotPassword title="Forgot Password | Aakanksha" />
+            <ForgotPassword title="Forgot Password | Aashroy" />
           </Route>
 
           <Route exact path="/profile/edit">
-            <EditProfile title="EditProfile | Aakanksha" />
+            <EditProfile title="EditProfile | Aashroy" />
           </Route>
 
           <Route path="/">
-            <Error404 title="Oops Error | Aakanksha" />
+            <Error404 title="Oops Error | Aashroy" />
           </Route>
         </Switch>
         <Footer />

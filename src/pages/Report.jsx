@@ -37,7 +37,7 @@ const Report = (props) => {
       </div>
 
       <div className="report-form">
-        <h3 className="form-heading">Feedback Form for Aakansha</h3>
+        <h3 className="form-heading">Feedback Form for Aashroy</h3>
         <form>
           <input
             type="text"
