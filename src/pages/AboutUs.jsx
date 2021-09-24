@@ -255,19 +255,33 @@ const AboutUs = (props) => {
       <div className="apibox">
         <div className="post">
           <h3>Heading</h3>
+          <p style={{ marginLeft: "1rem" }}>
+            Public API for all the homeless data uploaded by user
+          </p>
           <div className="box">
             <button className="pgbtn">POST</button>
             <div className="linkbox">
-              <a href="#">https://www.ghochu.com/api/post/loda</a>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://aashroy-api.herokuapp.com/api/upload"
+              >
+                https://aashroy-api.herokuapp.com/api/upload
+              </a>
             </div>
           </div>
         </div>
         <div className="get">
           <h3>Heading</h3>
+          <p style={{ marginLeft: "1rem" }}>
+            Public API for all the donations made by users of Aashroy
+          </p>
           <div className="box">
             <button className="pgbtn">GET</button>
             <div className="linkbox">
-              <a href="#">https://www.ghochu.com/api/get/loda</a>
+              <a href="https://aashroy-api.herokuapp.com/api/donation">
+                https://aashroy-api.herokuapp.com/api/donation
+              </a>
             </div>
           </div>
         </div>
