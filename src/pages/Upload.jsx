@@ -178,7 +178,6 @@ const Upload = (props) => {
                 onChange={handleUserInputChange}
               />
               <button onClick={uploadSelectedHandler}>
-                <img id="upload-img-btn" src="img/photo.png" alt="Upload"></img>{" "}
                 Upload
               </button>
             </>

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import "./css/AboutUs.css";
 
@@ -177,13 +178,13 @@ const AboutUs = (props) => {
                   <td>2</td>
                   <td>A CHIK BAPTIST CONVENTION</td>
                   <td>BAGPARA, P.O KHAGARPUR, DIST: BONGAIGAON</td>
-                  <td>XXX</td>
+                  <td>9854973902</td>
                 </tr>
                 <tr>
                   <td>3</td>
                   <td>A RAY OF HOPE SOCIETY</td>
                   <td>C/O:Madhu Sudhan Sarkar,Haflong Bazar PO/PS:HAFLONG</td>
-                  <td>XXX</td>
+                  <td>9435077743</td>
                 </tr>
                 <tr>
                   <td>4</td>
@@ -191,7 +192,7 @@ const AboutUs = (props) => {
                     A SOCIAL FOR HUMAN RESOURCE ORGANISATION AND IMPROVEMENTS
                   </td>
                   <td>Rup Nagar, Nalbari Gaon, PO- Gopalbazar,</td>
-                  <td>XXX</td>
+                  <td>7002721099</td>
                 </tr>
                 <tr>
                   <td>5</td>
@@ -200,13 +201,13 @@ const AboutUs = (props) => {
                     C/o MINI BORO, HOUSE NO 21, ULUBARI, KACHARI BASTI, GUWAHATI
                     781007{" "}
                   </td>
-                  <td>XXX</td>
+                  <td>9540849308</td>
                 </tr>
                 <tr>
                   <td>6</td>
                   <td>AADYA SRISHTI KALA MANDIR CULTURAL SOCIETY</td>
                   <td>S. DAHUTIA ROAD , BORPATHAR , TINSUKIA , TINSUKIA</td>
-                  <td>XXX</td>
+                  <td>9401104848</td>
                 </tr>
                 <tr>
                   <td>7</td>
@@ -215,7 +216,7 @@ const AboutUs = (props) => {
                     Hathimata Road, Ward No: 8, Opposite Surat Press, Kokrajhar,
                     Assam.
                   </td>
-                  <td>XXX</td>
+                  <td>8876090965</td>
                 </tr>
                 <tr>
                   <td>8</td>
@@ -225,7 +226,7 @@ const AboutUs = (props) => {
                     Gotanagar PNGB Road House No: 4 Near Gotanagar Nursery
                     Guwahati-781011
                   </td>
-                  <td>XXX</td>
+                  <td>9435117309</td>
                 </tr>
                 <tr>
                   <td>9</td>
@@ -235,7 +236,7 @@ const AboutUs = (props) => {
                     Road, Lakhtokia, Districtkamrup (M), Guwahati. Assam.
                     Pincode781001. India
                   </td>
-                  <td>XXX</td>
+                  <td>7576806128</td>
                 </tr>
                 <tr>
                   <td>10</td>
@@ -244,17 +245,28 @@ const AboutUs = (props) => {
                     AASTHA FOUNDATION,CHOW CHAKRA BUILDING,N.N.DUTTA ROAD
                     ,SILCHAR-788001
                   </td>
-                  <td>XXX</td>
+                  <td>9957577496</td>
                 </tr>
               </tbody>
             </table>
+            <p
+              style={{
+                textAlign: "right",
+                textDecoration: "underline",
+                paddingRight: "1rem",
+              }}
+            >
+              <a href="https://ngodarpan.gov.in/index.php/home/statewise">
+                click here to view more
+              </a>
+            </p>
           </div>
         </div>
       </div>
       <br></br>
       <div className="apibox">
         <div className="post">
-          <h3>Heading</h3>
+          <h3>Aashroy APIs</h3>
           <p style={{ marginLeft: "1rem" }}>
             Public API for all the homeless data uploaded by user
           </p>
@@ -272,7 +284,6 @@ const AboutUs = (props) => {
           </div>
         </div>
         <div className="get">
-          <h3>Heading</h3>
           <p style={{ marginLeft: "1rem" }}>
             Public API for all the donations made by users of Aashroy
           </p>
