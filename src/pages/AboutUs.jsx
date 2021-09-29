@@ -264,13 +264,13 @@ const AboutUs = (props) => {
       </div>
       <br></br>
       <div className="apibox">
-        <div className="post">
+        <div className="get">
           <h3>Aashroy APIs</h3>
           <p style={{ marginLeft: "1rem" }}>
             Public API for all the homeless data uploaded by user
           </p>
           <div className="box">
-            <button className="pgbtn">POST</button>
+            <button className="pgbtn">GET</button>
             <div className="linkbox">
               <a
                 target="_blank"
