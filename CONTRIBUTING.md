@@ -2,7 +2,7 @@
 
 Here are the steps you will need to follow to make your contributions.
 
-<img align="right" width="300" src="https://github.com/codadept/codachat/blob/master/resources/c1.png" alt="fork this repo" />
+<img align="right" width="300" src="https://github.com/vikas528/aashroy-client/blob/master/public/img/master-branch_ss.png" alt="fork this repo" />
 
 If you don't have git on your machine, [install it.](https://git-scm.com)
 
@@ -12,7 +12,7 @@ Fork this repository by clicking on the fork button on the top of this page. Thi
 
 ## Now clone the forked repository
 
-<img align="right" width="300" src="" alt="clone the repo" />
+<img align="right" width="300" src="https://github.com/vikas528/aashroy-client/blob/master/public/img/github-link.png" alt="clone the repo" />
 
 Now clone the forked repository to your machine. Go to your GitHub account, open the forked repository, click on the code button and then click the _copy to clipboard_ icon.
 
@@ -66,10 +66,10 @@ $ git push origin your-branch-name
 
 If you go to your repository on GitHub, you'll see a `Compare & pull request` button. Click on that button.
 
-<img style="float:right;" src="" alt="create a pull request" />
+<img style="float:right;" src="https://github.com/vikas528/aashroy-client/blob/master/public/img/create_pull_req.jpeg" alt="create a pull request" />
 
 Now submit the pull request.
 
-<img style="float: right;" src="" alt="send pull request" />
+<img style="float: right;" src="https://github.com/vikas528/aashroy-client/blob/master/public/img/create_pull_req.jpeg" alt="send pull request" />
 
 Soon I'll review your code and merge your changes. So you will be considered as a contributor!
