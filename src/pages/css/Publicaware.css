@@ -198,6 +198,23 @@
   font-size: 8rem;
   color: var(--theme1-100);
 }
+.quotes-2
+{
+  position: absolute;
+  top:-5.8rem;
+  left: 26rem;
+  z-index: 100;
+  font-size: 8rem;
+  color: var(--theme1-100);
+} 
+.right-2
+{
+  position: absolute;
+  left:31rem;
+  top: -2rem;
+ 
+  
+} 
 
 @media only screen and (max-width: 1202px) {
   .news-card {
@@ -342,6 +359,19 @@
     font-size: 4rem;
     top: -2rem;
     left: -2rem;
+  }
+  .quotes-2 {
+    font-size: 4rem;
+    top: -1rem;
+    left: -2rem;
+  }
+  .right-2
+  {
+    font-size: 1rem;
+    position: relative;
+    top: -0.1rem;
+    left: 0.3rem;
+  
   }
 }
 
