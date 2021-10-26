@@ -344,13 +344,12 @@ const Publicaware = (props) => {
           <div className="slogan-text">
             <br></br>
             <div className="slogan-text-each">
-              <span className="quotes">“</span>
-              <h3>You Don't Need A Reason To Help People.</h3>
+              <span className="quotes">“</span> 
+              <h3>You Don't Need A Reason To Help People.</h3> 
             </div>
-
             <div className="slogan-text-each">
-              <span className="quotes">“</span>
-              <h3>If You Can't Feed a Hundred People, then Feed Just One.</h3>
+              <span className="quotes-2">“</span>
+              <h3 className="right-2">If You Can't Feed a Hundred People, then Feed Just One.</h3>
             </div>
 
             <div className="slogan-text-each">
