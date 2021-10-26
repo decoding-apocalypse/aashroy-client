@@ -66,7 +66,7 @@ $ git push origin your-branch-name
 
 If you go to your repository on GitHub, you'll see a `Compare & pull request` button. Click on that button.
 
-<img style="float:right;" src="https://github.com/vikas528/aashroy-client/blob/master/public/img/create_pull_req.jpeg" alt="create a pull request" />
+<img style="float:right;" src="https://github.com/vikas528/aashroy-client/blob/VS_261021/public/img/compare_n_pullreq.png" alt="create a pull request" />
 
 Now submit the pull request.
 
